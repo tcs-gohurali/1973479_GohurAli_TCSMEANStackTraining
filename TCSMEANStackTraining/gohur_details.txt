@@ -1,4 +1,0 @@
-Name: Gohur Ali
-Date: 3/8/2021
-Role: SWE
-Interests: Machine Learning, Computer Vision, NLP, Deep Learning
