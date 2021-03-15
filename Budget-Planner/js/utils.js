@@ -7,11 +7,21 @@ function clearForm(){
 var data_storage = []
 var data_counter = 0
 
+function checkDataExists(){
+    console.log("in check fn")
+    console.log(sessionStorage)
+    if(sessionStorage.getItem("Project") === null){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 function storeData(){
     var clientName = document.getElementById("clientName").value
     var projectName = document.getElementById("projectName").value
     var budgetAmnt = document.getElementById("budgetAmnt").value
-    data_counter++
 
     console.log(clientName)
     console.log(projectName)
@@ -23,13 +33,26 @@ function storeData(){
     project_data.project_name = projectName
     project_data.budget_amnt = budgetAmnt
 
-    json_project_data = JSON.stringify(project_data)
-    data_storage.push(json_project_data)
-
+    // check if previous data exists
+    var NOTexists = checkDataExists();
+    if(NOTexists){
+        console.log("no data")
+    }
+    else{
+        console.log("data exists")
+        // get the pre-existing array
+        var json_project_data = sessionStorage.getItem("Project")
+        data_storage = JSON.parse(json_project_data)
+    }
+    
+    // Add to Projects Array
+    data_storage.push(project_data)
     console.log(data_storage)
 
-    sessionStorage.setItem("num_data",data_counter)
-    sessionStorage.setItem("Project"+data_counter.toString(),)
+    json_project_data = JSON.stringify(data_storage)
+    console.log(data_counter)
+
+    sessionStorage.setItem("Project",json_project_data)
 
     console.log(sessionStorage)
     clearForm()
