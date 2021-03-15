@@ -10,6 +10,7 @@ Assignment: Design Sell
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Budget Planner</title>
         <link href="css/style.css" rel="stylesheet" />
+        <script src="js/utils.js"></script>
     </head>
     <body bgcolor="#ebebe4">
 
@@ -41,7 +42,10 @@ Assignment: Design Sell
 
         <div class="nav">
             <input type="button" value="Project Managers" class="projectButton" onclick="document.location='pm_team.html'">
-            <input type="button" value="Financial Teams" class="projectButton" onclick="document.location='financial_team.html'">
+            <input type="button" value="Financial Teams" class="projectButton" onclick="displayFinancialData()">
+
+            <!-- <a href="pm_team.html">Project Managers</a>
+            <a href="financial_team.html">Financial Team</a> -->
         </div>
 
     </body>

@@ -10,42 +10,59 @@ Assignment: Design Sell
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Budget Planner</title>
         <link href="css/style.css" rel="stylesheet" />
+        <script src="js/utils.js"></script>
+        <script>
+            function getDataFromStorage(){
+                
+                console.log(sessionStorage)
+
+                for(var i = 0; i < sessionStorage.length; i++){
+                    
+                    var keyName = "Project" + i.toString()
+                    var json_project_data = sessionStorage.getItem(keyName)
+                    console.log(json_project_data)
+                    project_data = JSON.parse(json_project_data)
+                    //console.log(project_data)
+                
+                    // Place data into table
+                    //var table = document.getElementById("projTable1")
+                    //var table_body = table.getElementsByTagName("tbody")[0]
+                    //var new_row = table_body.insertRow(table_body.length)
+                
+                    //var client_cell = new_row.insertCell(0)
+                    //var project_cell = new_row.insertCell(1)
+                    //var budget_cell = new_row.insertCell(2)
+                
+                    //client_cell.innerHTML = project_data.client_name
+                    //project_cell.innerHTML = project_data.project_name
+                    //budget_cell.innerHTML = project_data.budget_amnt
+                }
+                
+                
+            }
+        </script>
     </head>
     <body bgcolor="#ebebe4">
+        
 
         <div class="websiteTitle">
             <h1>Collab Inc. Budget Planner</h1>
             <h2>A simple way to plan your project budgets!</h2>
         </div>
 
+        <input type="button" value="Back" class="projectButton" onclick="document.location='index.html'">
+
         <table id="projTable1" class="projectTable">
+            <thead>
+                <th>Client Name</th>
+                <th>Project Name</th>
+                <th>Budget Amount</th>
+            </thead>
             <tbody>
-                <tr>
-                    <td class="ad">
-                        <div class="ad">
-                            <p class="title">Migrate customer database to CosmosDB</p>
-                            <input type="button" class="projectButton" value="Approve"/>
-                            <input type="button" class="projectButton" value="Reject"/>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="ad">
-                            <p class="title">Create data injestion pipeline for object detector</p>
-                            <input type="button" class="projectButton" value="Approve"/>
-                            <input type="button" class="projectButton" value="Reject"/>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="ad">
-                            <p class="title">Redo the app</p>
-                            <input type="button" class="projectButton" value="Approve"/>
-                            <input type="button" class="projectButton" value="Reject"/>
-                        </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
+        <script>
+            getDataFromStorage()
+        </script>
     </body>
 </html>
