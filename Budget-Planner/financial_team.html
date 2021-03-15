@@ -60,6 +60,19 @@ Assignment: Design Sell
         </script>
     </head>
     <body bgcolor="#ebebe4">
+
+        <style>
+            .nav{
+                margin-left: auto;
+                margin-right: auto;
+                height: 300px;
+                width: 500px;
+                border: 5px solid black;
+                border-radius: 30px;
+                margin-top: 50px;
+                text-align: center;
+            }
+        </style>
         
 
         <div class="websiteTitle">
@@ -67,17 +80,21 @@ Assignment: Design Sell
             <h2>A simple way to plan your project budgets!</h2>
         </div>
 
-        <input type="button" value="Back" class="projectButton" onclick="document.location='index.html'">
-
-        <table id="projTable1" class="projectTable">
-            <thead>
-                <th>Client Name</th>
-                <th>Project Name</th>
-                <th>Budget Amount</th>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        
+        
+        <div class="nav">
+            <table id="projTable1" class="projectTable">
+                <thead>
+                    <th>Client Name</th>
+                    <th>Project Name</th>
+                    <th>Budget Amount</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <input type="button" value="Back" class="projectButton" class="backButton" onclick="document.location='index.html'">
+        </div>
+        
         <script>
             getDataFromStorage()
         </script>

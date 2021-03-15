@@ -37,10 +37,14 @@ Assignment: Design Sell
             }
 
             .pmPageTitle{
+                text-align: center;
                 font-size: 25px;
                 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             }
         </style>
+
+
+        <p class="pmPageTitle">Project Managers</p>
 
         <div class="nav">
             <p class="pmPageTitle">Add New Budget</p>
@@ -56,10 +60,11 @@ Assignment: Design Sell
             <label class="pmDetails" for="budgetAmnt">Budget Amount: </label>
             <input class="pmDetails" type="text" id="budgetAmnt"/>
             <br/>
-
+            
+            <input type="button" value="Back" class="projectButton" class="backButton" onclick="document.location='index.html'">
             <input type="button" value="Add" class="projectButton" onclick="storeData()">
             <input type="button" value="Clear" class="projectButton" onclick="clearForm()">
-            <input type="button" value="Back" class="projectButton" onclick="document.location='index.html'">
+            
         </div>
 
         <script>
