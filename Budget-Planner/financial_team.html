@@ -12,6 +12,8 @@ Assignment: Design Sell
         <link href="css/style.css" rel="stylesheet" />
         <script src="js/utils.js"></script>
         <script>
+
+            var total_budget = 0
             function getDataFromStorage(){
                 
                 console.log(sessionStorage)
@@ -35,12 +37,25 @@ Assignment: Design Sell
                     client_cell.innerHTML = project_data[i].client_name
                     project_cell.innerHTML = project_data[i].project_name
                     budget_cell.innerHTML = project_data[i].budget_amnt
-                    
+                    total_budget += parseInt(project_data[i].budget_amnt)   
                 }
+                
+                // Add the total row
+                console.log("Total Budget = " + total_budget)
+                addTotalBudget(table_body,total_budget)
+                
+            }
 
-                
-                
-                
+            function addTotalBudget(table_body,total){
+                var new_row = table_body.insertRow(table_body.length)
+                var client_cell = new_row.insertCell(0)
+                var project_cell = new_row.insertCell(1)
+                var budget_cell = new_row.insertCell(2)
+            
+                client_cell.innerHTML = "Total Budget".bold()
+                project_cell.innerHTML = ""
+                budget_cell.innerHTML = total.toString().bold()
+
             }
         </script>
     </head>

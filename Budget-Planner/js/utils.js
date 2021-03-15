@@ -5,7 +5,6 @@ function clearForm(){
 }
 
 var data_storage = []
-var data_counter = 0
 
 function checkDataExists(){
     console.log("in check fn")
@@ -50,7 +49,6 @@ function storeData(){
     console.log(data_storage)
 
     json_project_data = JSON.stringify(data_storage)
-    console.log(data_counter)
 
     sessionStorage.setItem("Project",json_project_data)
 
