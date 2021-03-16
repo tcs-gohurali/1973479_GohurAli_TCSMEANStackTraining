@@ -25,3 +25,14 @@ div.addBlog{
     /* border: 5px solid blue; */
     text-align: left;
 }
+
+tr{
+    border : 5px solid red;
+
+}
+
+td {
+    border: 5px solid blue;
+    width : 100px;
+    height : 100px;
+}
