@@ -90,3 +90,8 @@ td {
     text-align: center;
     font-size: 25px;
 }
+
+#clearLS{
+    display: block;
+    margin: 0 auto;
+}
