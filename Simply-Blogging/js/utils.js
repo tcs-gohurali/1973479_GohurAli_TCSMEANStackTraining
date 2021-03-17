@@ -15,21 +15,7 @@ function getBlogData(){
     // Stores the Data in storage
     storeData(blog_title,blog_desc,blog_image)
 
-    //Retreive Data from storage
-    var blog_data = getStorageData()
-
-    for(var i = 0; i < blog_data.length; i++){
-        //for(var i = blog_data.length - 1; i >= 0 ; i--){
-        var title = blog_data[i].title
-        var desc = blog_data[i].desc
-        var img = blog_data[i].img
-        console.log("------ " + title + " " + desc + " " + img +  " ------")
-        postBlog(blog_title,blog_desc,blog_image)
-    }
-
-    
-    
-    // Once submitted Clear the form
+    postBlog(blog_title,blog_desc,blog_image)
     clearBlogForm()
 }
 
@@ -71,13 +57,32 @@ function clearBlogForm(){
 
 // Storage Functions
 function storeData(title,desc,img){
-    blog_data = {}
-    blog_data.title = title
-    blog_data.desc = desc
-    blog_data.img = img
-    blogs.push(blog_data)
-    json_blog_data = JSON.stringify(blogs)
-    sessionStorage.setItem("blogs",json_blog_data)
+
+    var storage_exists = checkStorageExists()
+
+    if(storage_exists){
+        // since the storage exists, we need to get it and update it
+        var list_of_blogs = JSON.parse(sessionStorage.getItem('blogs'))
+        blog_data = {}
+        blog_data.title = title
+        blog_data.desc = desc
+        blog_data.img = img
+        list_of_blogs.push(blog_data)
+        sessionStorage.setItem("blogs",JSON.stringify(list_of_blogs))   
+    }
+    else{
+        blog_data = {}
+        blog_data.title = title
+        blog_data.desc = desc
+        blog_data.img = img
+        blogs.push(blog_data)
+        json_blog_data = JSON.stringify(blogs)
+        sessionStorage.setItem("blogs",json_blog_data)
+    }
+}
+
+function checkStorageExists(){
+    return sessionStorage.getItem('blogs') != null
 }
 
 function getStorageData(){
