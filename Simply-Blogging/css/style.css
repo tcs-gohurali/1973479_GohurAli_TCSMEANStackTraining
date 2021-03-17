@@ -1,3 +1,7 @@
+/* 
+Author: Gohur Ali
+Project: Simply Blogging
+*/
 .logo{
     /* margin-left:400px; */
     width:100px;
@@ -37,6 +41,13 @@ div.smallBlog{
     overflow-x: auto;
     overflow-y: auto;
 
+}
+
+#tableMode{
+    margin: 5px;
+}
+#gridMode{
+    margin: 5px;
 }
 
 .smallBlogDesc{

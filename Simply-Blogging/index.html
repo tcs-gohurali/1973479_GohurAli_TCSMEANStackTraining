@@ -1,3 +1,7 @@
+<!-- 
+Author: Gohur Ali
+Project: Simply Blogging
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,7 +83,13 @@
             <input type="button" value="Clear" class="btn btn-secondary" onclick="clearBlogForm()">
         </div>
 
+        <!-- Unused -->
+        <!-- <div style="text-align: center">
+            <input type="button" id="tableMode" value="Table Mode" class="btn btn-outline-dark" onclick="table_mode_enable()">
+            <input type="button" id="gridMode" value="Grid Mode" class="btn btn-outline-dark" onclick="grid_mode_enable()">
+        </div> -->
         
+        <!-- This is where all posted recent blogs will be located -->
         <div class="blogPosts">
             <table class="blogPostTable">
                 <thead>
@@ -90,16 +100,20 @@
             </table>
         </div>
         
+        <!-- Unused -->
         <div class="container">
-            <div id="blogPostsGrid">
+            <div id="gridBlogLocation">
+                <!-- <div id="blogPostsGrid">
+                </div> -->
             </div>
         </div>
-        
     </div>
+    <!-- Hidden button at the bottom to clear the local storage -->
     <input type="button" value="Clear Local Storage" class="btn btn-outline-light" id="clearLS" onclick="clearLocalStorage()">
 </body>
 <script>
-    //retreiveData()
-    retreiveData2()
+    retreiveData()
+    //retreiveData2()
+    //show_data()
 </script>
 </html>
