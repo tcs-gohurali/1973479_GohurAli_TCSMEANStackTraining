@@ -87,8 +87,7 @@ function get_inner_HTML(title,desc,img){
                         <image class="smallBlogImg" src="${img}"></image>
                     </a>
                 </div>
-            </div>
-        `
+            </div>`
     }
 }
 
