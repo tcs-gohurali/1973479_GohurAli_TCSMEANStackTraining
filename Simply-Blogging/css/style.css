@@ -56,19 +56,21 @@ div.smallBlog{
     border: 5px solid black;
     width: 370px;
     border-radius: 10px;
+    margin: 5px;
 }
 
 textarea{
     border: 5px solid black;
     border-radius: 10px;
+    margin: 5px;
 }
 
 .row{
-    border: 5px solid white;
+    /* border: 5px solid white; */
 }
 
 .col{
-    border: 5px solid white;
+    /* border: 5px solid white; */
 }
 
 .col-5{
@@ -91,6 +93,19 @@ table{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
+}
+
+#blogPostsGrid{
+    text-align: center;
+    background-color: white;
+    border-collapse: separate;
+    border: 5px solid black;
+    border-radius: 30px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;  
+    padding: 50px; 
 }
 
 tr{
