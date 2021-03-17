@@ -3,6 +3,7 @@ Author: Gohur Ali
 Project: Simply Blogging
 Description: Here is the page logic for index.html
 */
+
 // Global vars to keep track of page content
 var row_count = 0 
 var col_count = 0
@@ -65,8 +66,8 @@ function retreiveData(){
 }    
 
 function get_inner_HTML(title,desc,img){
-    //return "<div class='smallBlog'><h4>" + title +"</h4>" + "<br/>" + desc + "</div>"
-    if(img === ""){
+    console.log("BROOOOO -> " + img)
+    if(!img){
         return `
         <div class='smallBlog'>
             <h4>${title}</h4>
