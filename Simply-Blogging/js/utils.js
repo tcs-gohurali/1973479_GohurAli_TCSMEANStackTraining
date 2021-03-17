@@ -1,4 +1,10 @@
-var row_count = 0
+/*
+Author: Gohur Ali
+Project: Simply Blogging
+Description: Here is the page logic for index.html
+*/
+// Global vars to keep track of page content
+var row_count = 0 
 var col_count = 0
 current_cells = []
 blogs = []
@@ -42,8 +48,48 @@ function postBlog(title,desc,img){
     col_count++
 }
 
+function retreiveData(){
+    //Retreive Data from storage
+    var blog_data = JSON.parse(sessionStorage.getItem("blogs")) //getStorageData()
+
+    console.log("data from sessionStorage = ", JSON.stringify(blog_data))
+
+    for(var i = 0; i < blog_data.length; i++){
+        //for(var i = blog_data.length - 1; i >= 0 ; i--){
+        var title = blog_data[i].title
+        var desc = blog_data[i].desc
+        var img = blog_data[i].img
+        console.log("------ " + title + " " + desc + " " + img +  " ------")
+        postBlog(title,desc,img)
+    }
+}    
+
 function get_inner_HTML(title,desc,img){
-    return "<div class='smallBlog'><h4>" + title +"</h4>" + "<br/>" + desc + "</div>"
+    //return "<div class='smallBlog'><h4>" + title +"</h4>" + "<br/>" + desc + "</div>"
+    if(img === ""){
+        return `
+        <div class='smallBlog'>
+            <h4>${title}</h4>
+            <div class="smallBlogDesc">
+                <p>${desc}</p>
+            </div>
+        </div>`
+    }
+    else{
+        return `
+            <div class='smallBlog'>
+                <h4>${title}</h4>
+                <div class="smallBlogDesc">
+                    <p>${desc}</p>
+                </div>
+                <div class="thumbnail">
+                    <a href="${img}">
+                        <image class="smallBlogImg" src="${img}"></image>
+                    </a>
+                </div>
+            </div>
+        `
+    }
 }
 
 
