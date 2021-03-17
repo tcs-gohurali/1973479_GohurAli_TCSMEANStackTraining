@@ -27,8 +27,26 @@ div.smallBlog{
 
 }
 
+.formLabelTitle{
+    font-size: 20px;
+    font-weight: bold;
+}
+.formInput{
+    border: 5px solid black;
+    width: 370px;
+}
+
+textarea{
+    border: 5px solid black;
+}
+
 .row{
-    text-align: right;
+    border: 5px solid red;
+    /*text-align: right;*/
+}
+
+.col{
+    border: 5px solid blue;
 }
 
 .col-4{

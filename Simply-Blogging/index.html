@@ -45,24 +45,39 @@
     <h3>The most simple blog ever!</h3>
 
     <div class="addBlog">
-        <label for="">Title: </label>
-        <input type="text" name="title" id="title"/>
-        <br><br>
-        <div class='row' >
-            <div class='col-4'>
-                <label for="">Description: </label>
-            </div>
-            <div class='col-8'>
-                <textarea rows="4" cols="30" id="desc"></textarea>
+        <div class='row'>
+            <div class='col'>
+                <label class="formLabelTitle" for="">Post a Blog</label>
             </div>
         </div>
-        <br><br>
-        <label for="">Image: </label>
-        <input type="text" name="title" id="img"/>
-        <br><br>
+        <div class='row'>
+            <div class='col'>
+                <label class="formLabelTitle" for="">Title:</label>
+            </div>
+            <div class='col'>
+                <input type="text" id="title" class="formInput">
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col'>
+                <label class="formLabelTitle" for="">Description:</label>
+            </div>
+            <div class='col'>
+                <textarea name="desc" class="formLabelTitle" id="desc" cols="30" rows="5"></textarea>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col'>
+                <label class="formLabelTitle" for="">Image:</label>
+            </div>
+            <div class='col'>
+                <input type="text" id="img" class="formInput">
+            </div>
+        </div>
         <input type="button" value="Post" class="btn btn-primary" onclick="getBlogData()">
         <input type="button" value="Clear" class="btn btn-secondary" onclick="clearBlogForm()">
     </div>
+
 
     <div class="blogPosts">
         <table class="blogPostTable">
