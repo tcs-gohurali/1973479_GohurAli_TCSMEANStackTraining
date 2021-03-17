@@ -1,11 +1,16 @@
+.logo{
+    margin-left:400px;
+    width:100px;
+}
 h1,h2,h3{
     text-align: center;
 }
 
 div.addBlog{
+    background-color: white;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 45px;
     width : 600px;
     height : 460px;
     border: 5px solid black;
@@ -61,12 +66,14 @@ textarea{
 }
 
 table{
+    background-color: white;
     border-collapse: separate;
     border: 5px solid black;
     border-radius: 30px;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
 }
 
 tr{
