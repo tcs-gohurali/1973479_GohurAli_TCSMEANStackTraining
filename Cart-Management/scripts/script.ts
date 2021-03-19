@@ -8,6 +8,7 @@ class Cart{
 
         let product_price:string = document.getElementById("price_"+product_id).innerHTML.split('$')[1]
         this.cart_items.push({
+            id : product_id,
             name : document.getElementById("title_"+product_id).innerHTML,
             price : product_price
         })
@@ -19,7 +20,7 @@ class Cart{
         console.log(sessionStorage)
     }
 
-    checkStorage():void{
+    checkStorage():boolean{
         function storageExists() : boolean{
             if(sessionStorage.getItem('cart_items') === null){
                 console.log("doesnt exist")
@@ -35,6 +36,26 @@ class Cart{
         if(exists){
             this.cart_items = JSON.parse(sessionStorage.getItem('cart_items'))
             this.total_cost = JSON.parse(sessionStorage.getItem('total_cost'))
+        }
+        return exists
+    }
+
+    displayCart():void{
+        let exists:boolean = this.checkStorage()
+        if(exists){
+            let unique_ids = new Set();
+            for(const item_idx in this.cart_items){
+                unique_ids.add(this.cart_items[item_idx].id)
+            }
+            
+            // Get the table
+            let table:HTMLElement = document.getElementById("cartTable")
+            let tbody = document.getElementsByTagName("tbody")[0]
+            for(const item_idx in unique_ids){
+                let curr_id = unique_ids[item_idx]
+                let new_row = tbody.insertRow(parseInt(item_idx))
+            }
+
         }
     }
 }
