@@ -1,14 +1,42 @@
 var Cart = /** @class */ (function () {
-    function Cart(num_items, cart_items) {
+    function Cart(num_items, total_cost, cart_items) {
         if (num_items === void 0) { num_items = 0; }
+        if (total_cost === void 0) { total_cost = 0; }
         if (cart_items === void 0) { cart_items = Array(); }
         this.num_items = num_items;
+        this.total_cost = total_cost;
         this.cart_items = cart_items;
     }
     Cart.prototype.addToCart = function (product_id) {
+        // Check if items already exist in storage
+        this.checkStorage();
+        var product_price = document.getElementById("price_" + product_id).innerHTML.split('$')[1];
+        this.cart_items.push({
+            name: document.getElementById("title_" + product_id).innerHTML,
+            price: product_price
+        });
         this.num_items++;
-        var product_price = document.getElementById(product_id).innerHTML.split('$')[1];
-        console.log("->" + product_price);
+        this.total_cost += parseFloat(product_price);
+        sessionStorage.setItem("cart_items", JSON.stringify(this.cart_items));
+        sessionStorage.setItem("total_cost", JSON.stringify(this.total_cost));
+        console.log(sessionStorage);
+    };
+    Cart.prototype.checkStorage = function () {
+        function storageExists() {
+            if (sessionStorage.getItem('cart_items') === null) {
+                console.log("doesnt exist");
+                return false;
+            }
+            else {
+                console.log("exists in storage");
+                return true;
+            }
+        }
+        var exists = storageExists();
+        if (exists) {
+            this.cart_items = JSON.parse(sessionStorage.getItem('cart_items'));
+            this.total_cost = JSON.parse(sessionStorage.getItem('total_cost'));
+        }
     };
     return Cart;
 }());

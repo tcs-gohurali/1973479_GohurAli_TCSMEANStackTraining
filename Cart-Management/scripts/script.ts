@@ -1,12 +1,41 @@
 class Cart{
-    constructor(public num_items:number=0,public cart_items:number[]=Array<any>()){
+    constructor(public num_items:number=0,public total_cost:number=0,public cart_items:any[]=Array<any>()){
     }
 
     addToCart(product_id:string):void{
+        // Check if items already exist in storage
+        this.checkStorage()
+
+        let product_price:string = document.getElementById("price_"+product_id).innerHTML.split('$')[1]
+        this.cart_items.push({
+            name : document.getElementById("title_"+product_id).innerHTML,
+            price : product_price
+        })
         this.num_items++
-        let product_price:string = document.getElementById(product_id).innerHTML.split('$')[1]
-        console.log("->"+product_price)
+        this.total_cost += parseFloat(product_price)
         
+        sessionStorage.setItem("cart_items",JSON.stringify(this.cart_items))
+        sessionStorage.setItem("total_cost",JSON.stringify(this.total_cost))
+        console.log(sessionStorage)
+    }
+
+    checkStorage():void{
+        function storageExists() : boolean{
+            if(sessionStorage.getItem('cart_items') === null){
+                console.log("doesnt exist")
+                return false
+            }
+            else{
+                console.log("exists in storage")
+                return true
+            }
+        }
+
+        let exists:boolean = storageExists()
+        if(exists){
+            this.cart_items = JSON.parse(sessionStorage.getItem('cart_items'))
+            this.total_cost = JSON.parse(sessionStorage.getItem('total_cost'))
+        }
     }
 }
 
