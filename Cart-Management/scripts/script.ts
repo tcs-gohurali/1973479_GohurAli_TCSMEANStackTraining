@@ -7,11 +7,46 @@ class Cart{
         this.checkStorage()
 
         let product_price:string = document.getElementById("price_"+product_id).innerHTML.split('$')[1]
-        this.cart_items.push({
-            id : product_id,
-            name : document.getElementById("title_"+product_id).innerHTML,
-            price : product_price
-        })
+        // this.cart_items.push({
+        //     id : product_id,
+        //     name : document.getElementById("title_"+product_id).innerHTML,
+        //     price : product_price
+        // })
+
+        if(this.cart_items.length > 0){
+            for(let i = 0; i < this.cart_items.length; i++){
+                const obj = JSON.parse(JSON.stringify(this.cart_items[i]))
+                console.log(product_id + " --- " + obj[product_id])
+                // if(product_id === obj[product_id]){
+                //     obj[product_id].quantity++
+                // }
+                // if(i == this.cart_items.length - 1){
+                //     this.cart_items.push(
+                //         {
+                //             product_id: {
+                //                 name : document.getElementById("title_"+product_id).innerHTML,
+                //                 price : product_price,
+                //                 quantity: 1
+                //             }           
+                //         }
+                //     )
+                // }
+            }
+        }
+        else{
+            this.cart_items.push(
+                {
+                    product_id: {
+                        name : document.getElementById("title_"+product_id).innerHTML,
+                        price : product_price,
+                        quantity: 1
+                    }           
+                }
+            )
+        }
+        
+        
+
         this.num_items++
         this.total_cost += parseFloat(product_price)
         
@@ -43,18 +78,18 @@ class Cart{
     displayCart():void{
         let exists:boolean = this.checkStorage()
         if(exists){
-            let unique_ids = new Set();
-            for(const item_idx in this.cart_items){
-                unique_ids.add(this.cart_items[item_idx].id)
-            }
+            // let unique_ids = new Set();
+            // for(const item_idx in this.cart_items){
+            //     unique_ids.add(this.cart_items[item_idx].id)
+            // }
             
-            // Get the table
-            let table:HTMLElement = document.getElementById("cartTable")
-            let tbody = document.getElementsByTagName("tbody")[0]
-            for(const item_idx in unique_ids){
-                let curr_id = unique_ids[item_idx]
-                let new_row = tbody.insertRow(parseInt(item_idx))
-            }
+            // // Get the table
+            // let table:HTMLElement = document.getElementById("cartTable")
+            // let tbody = document.getElementsByTagName("tbody")[0]
+            // for(const item_idx in unique_ids){
+            //     let curr_id = unique_ids[item_idx]
+            //     let new_row = tbody.insertRow(parseInt(item_idx))
+            // }
 
         }
     }
