@@ -106,25 +106,32 @@ function displayCart():void{
 
         let img_cell = new_row.insertCell(0)
         let name_cell = new_row.insertCell(1)
-        let quantity_cell = new_row.insertCell(2)
-        let price_cell = new_row.insertCell(3)
+        let price_cell = new_row.insertCell(2)
+        let quantity_cell = new_row.insertCell(3)
+        let quantity2price = new_row.insertCell(4)
+        
 
         img_cell.innerHTML = `<img class='cartProductImage' src='${curr_cart.cart_items[i]['image']}'>`
         name_cell.innerHTML = curr_cart.cart_items[i]['name']
-        quantity_cell.innerHTML = curr_cart.cart_items[i]['quantity']
         price_cell.innerHTML = "$"+curr_cart.cart_items[i]['price']
+        quantity_cell.innerHTML = curr_cart.cart_items[i]['quantity']
+        quantity2price.innerHTML = "$"+ (parseInt(curr_cart.cart_items[i]['price']) * parseInt(curr_cart.cart_items[i]['quantity']))
+        
     }
     
     // add the final row that shows the total
     let new_row = tbody.insertRow(-1)
+
     let name_cell = new_row.insertCell(0)
     let quantity_cell = new_row.insertCell(1)
     let price_cell = new_row.insertCell(2)
+    let total_price = new_row.insertCell(3)
 
     name_cell.innerHTML = "<b>Total</b>"
     name_cell.setAttribute('colspan','2')
+
     quantity_cell.innerHTML = ""
-    price_cell.innerHTML = "$"+sessionStorage['total_cost']
+    total_price.innerHTML = "$"+sessionStorage['total_cost']
 
 }
 

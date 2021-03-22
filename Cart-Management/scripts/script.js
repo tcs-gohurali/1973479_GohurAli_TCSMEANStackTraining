@@ -96,22 +96,25 @@ function displayCart() {
         var new_row_1 = tbody.insertRow(i);
         var img_cell = new_row_1.insertCell(0);
         var name_cell_1 = new_row_1.insertCell(1);
-        var quantity_cell_1 = new_row_1.insertCell(2);
-        var price_cell_1 = new_row_1.insertCell(3);
+        var price_cell_1 = new_row_1.insertCell(2);
+        var quantity_cell_1 = new_row_1.insertCell(3);
+        var quantity2price = new_row_1.insertCell(4);
         img_cell.innerHTML = "<img class='cartProductImage' src='" + curr_cart.cart_items[i]['image'] + "'>";
         name_cell_1.innerHTML = curr_cart.cart_items[i]['name'];
-        quantity_cell_1.innerHTML = curr_cart.cart_items[i]['quantity'];
         price_cell_1.innerHTML = "$" + curr_cart.cart_items[i]['price'];
+        quantity_cell_1.innerHTML = curr_cart.cart_items[i]['quantity'];
+        quantity2price.innerHTML = "$" + (parseInt(curr_cart.cart_items[i]['price']) * parseInt(curr_cart.cart_items[i]['quantity']));
     }
     // add the final row that shows the total
     var new_row = tbody.insertRow(-1);
     var name_cell = new_row.insertCell(0);
     var quantity_cell = new_row.insertCell(1);
     var price_cell = new_row.insertCell(2);
+    var total_price = new_row.insertCell(3);
     name_cell.innerHTML = "<b>Total</b>";
     name_cell.setAttribute('colspan', '2');
     quantity_cell.innerHTML = "";
-    price_cell.innerHTML = "$" + sessionStorage['total_cost'];
+    total_price.innerHTML = "$" + sessionStorage['total_cost'];
 }
 // OnClick Functions
 function product_101() {
