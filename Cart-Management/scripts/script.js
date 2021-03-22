@@ -30,6 +30,7 @@ var Cart = /** @class */ (function () {
                         product_id: product_id,
                         name: document.getElementById("title_" + product_id).innerHTML,
                         price: product_price,
+                        image: document.getElementById("pic_" + product_id).getAttribute('src'),
                         quantity: 0
                     });
                 }
@@ -40,6 +41,7 @@ var Cart = /** @class */ (function () {
                 product_id: product_id,
                 name: document.getElementById("title_" + product_id).innerHTML,
                 price: product_price,
+                image: document.getElementById("pic_" + product_id).getAttribute('src'),
                 quantity: 1
             });
         }
@@ -47,7 +49,17 @@ var Cart = /** @class */ (function () {
         this.total_cost += parseFloat(product_price);
         sessionStorage.setItem("cart_items", JSON.stringify(this.cart_items));
         sessionStorage.setItem("total_cost", JSON.stringify(this.total_cost));
+        sessionStorage.setItem("total_num_items", JSON.stringify(this.num_items));
+        this.updateCartLink();
         console.log(sessionStorage);
+    };
+    Cart.prototype.updateCartLink = function () {
+        var exists = this.checkStorage();
+        if (exists) {
+            var total_num_items = JSON.parse(sessionStorage.getItem("total_num_items"));
+            var cart_link_button = document.getElementById("navCartLink");
+            cart_link_button.innerHTML = "Cart (" + total_num_items + ")";
+        }
     };
     Cart.prototype.checkStorage = function () {
         function storageExists() {
@@ -64,12 +76,12 @@ var Cart = /** @class */ (function () {
         if (exists) {
             this.cart_items = JSON.parse(sessionStorage.getItem('cart_items'));
             this.total_cost = JSON.parse(sessionStorage.getItem('total_cost'));
+            this.num_items = JSON.parse(sessionStorage.getItem('total_num_items'));
         }
         return exists;
     };
     return Cart;
 }());
-var curr_cart = new Cart();
 function displayCart() {
     console.log("In the display function -- !");
     // Once on the cart page -- show the part on a table
@@ -81,14 +93,25 @@ function displayCart() {
     var table = document.getElementById("cartTable");
     var tbody = document.getElementsByTagName("tbody")[0];
     for (var i = 0; i < curr_cart.cart_items.length; i++) {
-        var new_row = tbody.insertRow(i);
-        var name_cell = new_row.insertCell(0);
-        var quantity_cell = new_row.insertCell(1);
-        var price_cell = new_row.insertCell(2);
-        name_cell.innerHTML = curr_cart.cart_items[i]['name'];
-        quantity_cell.innerHTML = curr_cart.cart_items[i]['quantity'];
-        price_cell.innerHTML = curr_cart.cart_items[i]['price'];
+        var new_row_1 = tbody.insertRow(i);
+        var img_cell = new_row_1.insertCell(0);
+        var name_cell_1 = new_row_1.insertCell(1);
+        var quantity_cell_1 = new_row_1.insertCell(2);
+        var price_cell_1 = new_row_1.insertCell(3);
+        img_cell.innerHTML = "<img class='cartProductImage' src='" + curr_cart.cart_items[i]['image'] + "'>";
+        name_cell_1.innerHTML = curr_cart.cart_items[i]['name'];
+        quantity_cell_1.innerHTML = curr_cart.cart_items[i]['quantity'];
+        price_cell_1.innerHTML = "$" + curr_cart.cart_items[i]['price'];
     }
+    // add the final row that shows the total
+    var new_row = tbody.insertRow(-1);
+    var name_cell = new_row.insertCell(0);
+    var quantity_cell = new_row.insertCell(1);
+    var price_cell = new_row.insertCell(2);
+    name_cell.innerHTML = "<b>Total</b>";
+    name_cell.setAttribute('colspan', '2');
+    quantity_cell.innerHTML = "";
+    price_cell.innerHTML = "$" + sessionStorage['total_cost'];
 }
 // OnClick Functions
 function product_101() {
@@ -118,3 +141,10 @@ function product_108() {
 function product_109() {
     curr_cart.addToCart("109");
 }
+function navigate() {
+    curr_cart.updateCartLink();
+}
+var curr_cart = new Cart();
+document.addEventListener("DOMContentLoaded", function () {
+    navigate();
+});

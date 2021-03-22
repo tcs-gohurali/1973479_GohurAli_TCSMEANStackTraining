@@ -24,17 +24,29 @@
     height: 200px;
 }
 
+.cartProductImage{
+    margin-top: 25px;
+    border: 2px solid rgb(0, 68, 255);
+    border-radius: 5px;
+    width: 100px;
+    height: 100px;
+}
+
 .productTitle{
     font-size: 20px;
 }
 
 .cartPage{
-    border: 5px solid orange;
     text-align: center;
 }
 
 /* Table Style */
-.cartList{
-    text-align: center;
-    border: 5px solid black;
+.cartTable{
+    margin: 20px auto;
+    border: 2px solid black;
+}
+
+td{
+    vertical-align: middle;
+    border: 1px solid black;   
 }

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Cut Jewelers</title>
+    <link rel="icon" href="https://i.pinimg.com/originals/bf/12/2b/bf122bfc08e7b4990fcfc04e7ede91b7.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="scripts/script.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-primary justify-content-center" style="background-color: #dbdbdb;">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link link-light active" href="index.html">Our Collection</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link link-light active" href="">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link link-light active" href="">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link link-light active" href="">Login</a>
+            </li>
+            <li class="nav-item">
+                <a id="navCartLink" class="nav-link link-light active" href="cart.html">Cart</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <div class="pageTitle">
+            <h1>Clear Cut Jewelers</h1>
+            <h4>Only the clearest and most brilliant!</h4>
+        </div>
+
+
+        <div class="cartPage">
+            <h4>Order Process</h4>
+
+            <div class='row'>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="f_fname" placeholder="name@example.com">
+                                <label for="f_email">First Name</label>
+                            </div>
+    
+                        </div>
+                        <div class='col'>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="f_lname" placeholder="name@example.com">
+                                <label for="f_email">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="f_email" placeholder="name@example.com">
+                        <label for="f_email">E-mail</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="f_streetAddress" placeholder="name@example.com">
+                        <label for="f_streetAddress">Street Address</label>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="f_city" placeholder="name@example.com">
+                                <label for="f_city">City</label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="f_state" placeholder="name@example.com">
+                                <label for="f_state">State</label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="f_zip" placeholder="name@example.com">
+                                <label for="f_zip">Zip Code</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="f_ccNum" placeholder="name@example.com">
+                                <label for="f_ccNum">Credit Card Number</label>
+                            </div>
+    
+                        </div>
+                        <div class='col'>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="f_cvv" placeholder="name@example.com">
+                                <label for="f_cvv">CVV/CVC</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class='col'>
+                    <div class="cartList">
+                        <table class="cartTable">
+                            <thead>
+                                <th colspan="2">Item</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <input type="button" class="btn btn-primary" value="Process Order">
+
+
+        </div>
+    </div>
+
+</body>
+<script>
+    displayCart()
+</script>
+</html>

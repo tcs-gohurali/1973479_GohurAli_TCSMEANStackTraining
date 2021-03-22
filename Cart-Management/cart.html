@@ -27,7 +27,7 @@
                 <a class="nav-link link-light active" href="">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link link-light active" href="cart.html">Cart</a>
+                <a id="navCartLink" class="nav-link link-light active" href="cart.html">Cart</a>
             </li>
         </ul>
     </nav>
@@ -44,13 +44,21 @@
             <h4>Your Cart</h4>
 
             <div class="cartList">
-                <table class="cartTable">
-                    <thead></thead>
+                <table class="cartTable table">
+                    <thead>
+                        <th colspan="2">Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </thead>
                     <tbody></tbody>
                 </table>
             </div>
+
+            <input type="button" class="btn btn-primary" value="Checkout" onclick="window.location.href='checkout.html'">
+
         </div>
     </div>
+
 </body>
 <script>
     displayCart()

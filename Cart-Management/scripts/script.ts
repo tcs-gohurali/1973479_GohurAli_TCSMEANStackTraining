@@ -28,6 +28,7 @@ class Cart{
                             product_id: product_id,
                             name : document.getElementById("title_"+product_id).innerHTML,
                             price : product_price,
+                            image: document.getElementById("pic_"+product_id).getAttribute('src'),
                             quantity: 0
                                   
                         }
@@ -41,6 +42,7 @@ class Cart{
                     product_id: product_id,
                     name : document.getElementById("title_"+product_id).innerHTML,
                     price : product_price,
+                    image: document.getElementById("pic_"+product_id).getAttribute('src'),
                     quantity: 1
                 }
             )
@@ -51,7 +53,18 @@ class Cart{
         
         sessionStorage.setItem("cart_items",JSON.stringify(this.cart_items))
         sessionStorage.setItem("total_cost",JSON.stringify(this.total_cost))
+        sessionStorage.setItem("total_num_items",JSON.stringify(this.num_items))
+        this.updateCartLink()
         console.log(sessionStorage)
+    }
+
+    updateCartLink(){
+        let exists:boolean = this.checkStorage()
+        if(exists){
+            let total_num_items = JSON.parse(sessionStorage.getItem("total_num_items"))
+            let cart_link_button = document.getElementById("navCartLink")
+            cart_link_button.innerHTML = `Cart (${total_num_items})`
+        }
     }
 
     checkStorage():boolean{
@@ -70,12 +83,11 @@ class Cart{
         if(exists){
             this.cart_items = JSON.parse(sessionStorage.getItem('cart_items'))
             this.total_cost = JSON.parse(sessionStorage.getItem('total_cost'))
+            this.num_items = JSON.parse(sessionStorage.getItem('total_num_items'))
         }
         return exists
     }
 }
-
-let curr_cart:Cart = new Cart()
 
 function displayCart():void{
     console.log("In the display function -- !")
@@ -91,14 +103,29 @@ function displayCart():void{
     let tbody = document.getElementsByTagName("tbody")[0]
     for(let i = 0; i < curr_cart.cart_items.length; i++){
         let new_row = tbody.insertRow(i)
-        let name_cell = new_row.insertCell(0)
-        let quantity_cell = new_row.insertCell(1)
-        let price_cell = new_row.insertCell(2)
 
+        let img_cell = new_row.insertCell(0)
+        let name_cell = new_row.insertCell(1)
+        let quantity_cell = new_row.insertCell(2)
+        let price_cell = new_row.insertCell(3)
+
+        img_cell.innerHTML = `<img class='cartProductImage' src='${curr_cart.cart_items[i]['image']}'>`
         name_cell.innerHTML = curr_cart.cart_items[i]['name']
         quantity_cell.innerHTML = curr_cart.cart_items[i]['quantity']
-        price_cell.innerHTML = curr_cart.cart_items[i]['price']
+        price_cell.innerHTML = "$"+curr_cart.cart_items[i]['price']
     }
+    
+    // add the final row that shows the total
+    let new_row = tbody.insertRow(-1)
+    let name_cell = new_row.insertCell(0)
+    let quantity_cell = new_row.insertCell(1)
+    let price_cell = new_row.insertCell(2)
+
+    name_cell.innerHTML = "<b>Total</b>"
+    name_cell.setAttribute('colspan','2')
+    quantity_cell.innerHTML = ""
+    price_cell.innerHTML = "$"+sessionStorage['total_cost']
+
 }
 
 
@@ -130,3 +157,12 @@ function product_108(){
 function product_109(){
     curr_cart.addToCart("109")
 }
+function navigate(){
+    curr_cart.updateCartLink()
+}
+
+let curr_cart:Cart = new Cart()
+
+document.addEventListener("DOMContentLoaded", function(){
+    navigate()
+});
