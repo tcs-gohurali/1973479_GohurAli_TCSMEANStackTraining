@@ -58,6 +58,76 @@ class Cart{
         console.log(sessionStorage)
     }
 
+    itemUpQuantity(product_id:string){
+        this.checkStorage()
+        for(let i = 0; i < this.cart_items.length; i++){
+
+            if(product_id == this.cart_items[i]['product_id']){
+                this.cart_items[i]['quantity']++
+                this.total_cost += parseInt(this.cart_items[i]['price'])
+                this.num_items++
+
+                let quantity_tag = document.getElementById('quantity_'+product_id)
+                let curr_quantity = parseInt(quantity_tag.innerHTML)
+                curr_quantity++
+                quantity_tag.innerHTML = curr_quantity.toString()
+
+                let total_tag = document.getElementById("table_cart_total")
+                let total_cost = parseInt(total_tag.innerHTML)
+                total_cost += parseInt(this.cart_items[i]['price'])
+                total_tag.innerHTML = total_cost.toString()
+
+                let total_item_tag = document.getElementById("quantity2price_"+product_id)
+                let curr_q2p = parseInt(total_item_tag.innerHTML)
+                curr_q2p += parseInt(this.cart_items[i]['price'])
+                total_item_tag.innerHTML = curr_q2p.toString()
+
+                sessionStorage.setItem("cart_items",JSON.stringify(this.cart_items))
+                sessionStorage.setItem("total_cost",JSON.stringify(this.total_cost))
+                sessionStorage.setItem("total_num_items",JSON.stringify(this.num_items))
+                break
+            }
+        }
+    }
+    itemDownQuantity(product_id:string){
+        this.checkStorage()
+
+        for(let i = 0; i < this.cart_items.length; i++){
+            if(product_id == this.cart_items[i]['product_id']){
+                let item_price:string = this.cart_items[i]['price']
+
+                this.cart_items[i]['quantity']--
+                this.total_cost -= parseInt(this.cart_items[i]['price'])
+                this.num_items--
+
+                if(this.cart_items[i]['quantity'] == 0){
+                    let table:HTMLTableElement = document.getElementById("cartTable") as HTMLTableElement
+                    table.deleteRow(1+i)
+                    this.cart_items.splice(i,1)
+                }else{
+                    let quantity_tag = document.getElementById('quantity_'+product_id)
+                    let curr_quantity = parseInt(quantity_tag.innerHTML)
+                    curr_quantity--
+                    quantity_tag.innerHTML = curr_quantity.toString()
+
+                    let total_item_tag = document.getElementById("quantity2price_"+product_id)
+                    let curr_q2p = parseInt(total_item_tag.innerHTML)
+                    curr_q2p -= parseInt(this.cart_items[i]['price'])
+                    total_item_tag.innerHTML = curr_q2p.toString()
+                }
+                let total_tag = document.getElementById("table_cart_total")
+                let total_cost = parseInt(total_tag.innerHTML)
+                total_cost -= parseInt(item_price)
+                total_tag.innerHTML = total_cost.toString()
+
+                sessionStorage.setItem("cart_items",JSON.stringify(this.cart_items))
+                sessionStorage.setItem("total_cost",JSON.stringify(this.total_cost))
+                sessionStorage.setItem("total_num_items",JSON.stringify(this.num_items))
+                break
+            }
+        }
+    }
+
     updateCartLink(){
         let exists:boolean = this.checkStorage()
         if(exists){
@@ -102,6 +172,8 @@ function displayCart():void{
     let table:HTMLElement = document.getElementById("cartTable")
     let tbody = document.getElementsByTagName("tbody")[0]
     for(let i = 0; i < curr_cart.cart_items.length; i++){
+        let product_id = curr_cart.cart_items[i]['product_id']
+
         let new_row = tbody.insertRow(i)
 
         let img_cell = new_row.insertCell(0)
@@ -109,14 +181,15 @@ function displayCart():void{
         let price_cell = new_row.insertCell(2)
         let quantity_cell = new_row.insertCell(3)
         let quantity2price = new_row.insertCell(4)
-        
+
+        let upQuantityButton = `<input type="button" class="btn btn-primary" id="upQuantity_${product_id}" value="+" style="width:40px;height:40px;" onclick="upQuantity_${product_id}()">`
+        let downQuantityButton = `<input type="button" class="btn btn-primary" id="downQuantity_${product_id}" value="-" style="width:40px;height:40px;" onclick="downQuantity_${product_id}()">`
 
         img_cell.innerHTML = `<img class='cartProductImage' src='${curr_cart.cart_items[i]['image']}'>`
         name_cell.innerHTML = curr_cart.cart_items[i]['name']
         price_cell.innerHTML = "$"+curr_cart.cart_items[i]['price']
-        quantity_cell.innerHTML = curr_cart.cart_items[i]['quantity']
-        quantity2price.innerHTML = "$"+ (parseInt(curr_cart.cart_items[i]['price']) * parseInt(curr_cart.cart_items[i]['quantity']))
-        
+        quantity_cell.innerHTML = `<div id='quantity_${product_id}'>`+curr_cart.cart_items[i]['quantity'] +"</div>   "+ upQuantityButton + " " + downQuantityButton
+        quantity2price.innerHTML = `$<div style='display: inline' id='quantity2price_${product_id}'>`+(parseInt(curr_cart.cart_items[i]['price']) * parseInt(curr_cart.cart_items[i]['quantity'])) + "</div>"
     }
     
     // add the final row that shows the total
@@ -131,7 +204,7 @@ function displayCart():void{
     name_cell.setAttribute('colspan','2')
 
     quantity_cell.innerHTML = ""
-    total_price.innerHTML = "$"+sessionStorage['total_cost']
+    total_price.innerHTML = "$<div style='display: inline' id='table_cart_total'>"+sessionStorage['total_cost']+"</div>"
 
 }
 
@@ -166,6 +239,61 @@ function product_109(){
 }
 function navigate(){
     curr_cart.updateCartLink()
+}
+
+function upQuantity_101(){
+    curr_cart.itemUpQuantity("101")
+}
+function upQuantity_102(){
+    curr_cart.itemUpQuantity("102")
+}
+function upQuantity_103(){
+    curr_cart.itemUpQuantity("103")
+}
+function upQuantity_104(){
+    curr_cart.itemUpQuantity("104")
+}
+function upQuantity_105(){
+    curr_cart.itemUpQuantity("105")
+}
+function upQuantity_106(){
+    curr_cart.itemUpQuantity("106")
+}
+function upQuantity_107(){
+    curr_cart.itemUpQuantity("107")
+}
+function upQuantity_108(){
+    curr_cart.itemUpQuantity("108")
+}
+function upQuantity_109(){
+    curr_cart.itemUpQuantity("109")
+}
+function downQuantity_101(){
+    curr_cart.itemDownQuantity("101")
+}
+function downQuantity_102(){
+    curr_cart.itemDownQuantity("102")
+}
+function downQuantity_103(){
+    curr_cart.itemDownQuantity("103")
+}
+function downQuantity_104(){
+    curr_cart.itemDownQuantity("104")
+}
+function downQuantity_105(){
+    curr_cart.itemDownQuantity("105")
+}
+function downQuantity_106(){
+    curr_cart.itemDownQuantity("106")
+}
+function downQuantity_107(){
+    curr_cart.itemDownQuantity("107")
+}
+function downQuantity_108(){
+    curr_cart.itemDownQuantity("108")
+}
+function downQuantity_109(){
+    curr_cart.itemDownQuantity("109")
 }
 
 let curr_cart:Cart = new Cart()
