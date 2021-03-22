@@ -13,45 +13,29 @@ var Cart = /** @class */ (function () {
         this.checkStorage();
         // Gets the price from the HTML tag
         var product_price = document.getElementById("price_" + product_id).innerHTML.split('$')[1];
-        // this.cart_items.push({
-        //     id : product_id,
-        //     name : document.getElementById("title_"+product_id).innerHTML,
-        //     price : product_price
-        // })
-        // -- UPDATE QUANTITY -- 
-        console.log("-- UPDATE QUANTITY --");
         // check the cart number of items
         if (this.cart_items.length > 0) {
-            console.log("pooooooooooooooooooooooooop");
             // if greater than 0 then we need to ---
             for (var i = 0; i < this.cart_items.length; i++) {
-                if (product_id === this.cart_items[i]['product_id']) {
-                    console.log("This is the same product ++++++++++++");
+                console.log("Item ID = " + product_id + " ----------- Current ID = " + this.cart_items[i]['product_id']);
+                if (product_id == this.cart_items[i]['product_id']) {
                     this.cart_items[i]['quantity']++;
+                    break;
                 }
-                // const poop = this.cart_items[i]
-                // console.log("pooper " + poop[101]['name'])
-                // const obj = JSON.stringify(this.cart_items[i])
-                // console.log(obj)
-                // console.log(product_id + " --- " + obj[product_id])
-                // if(product_id === obj[product_id]){
-                //     obj[product_id].quantity++
-                // }
-                // if(i == this.cart_items.length - 1){
-                //     this.cart_items.push(
-                //         {
-                //             product_id: {
-                //                 name : document.getElementById("title_"+product_id).innerHTML,
-                //                 price : product_price,
-                //                 quantity: 1
-                //             }           
-                //         }
-                //     )
-                // }
+                // if we reach the end of the list and still don't have a match, append to the list
+                else if ((i == this.cart_items.length - 1) && (product_id != this.cart_items[i]['product_id'])) {
+                    console.log("Reached the end -- need to add to list $$$$");
+                    console.log("Item ID = " + product_id + " &&&&&&&&& Current ID = " + this.cart_items[i]['product_id']);
+                    this.cart_items.push({
+                        product_id: product_id,
+                        name: document.getElementById("title_" + product_id).innerHTML,
+                        price: product_price,
+                        quantity: 0
+                    });
+                }
             }
         }
         else {
-            console.log("This is the current product id = " + product_id);
             this.cart_items.push({
                 product_id: product_id,
                 name: document.getElementById("title_" + product_id).innerHTML,
@@ -83,25 +67,29 @@ var Cart = /** @class */ (function () {
         }
         return exists;
     };
-    Cart.prototype.displayCart = function () {
-        var exists = this.checkStorage();
-        if (exists) {
-            // let unique_ids = new Set();
-            // for(const item_idx in this.cart_items){
-            //     unique_ids.add(this.cart_items[item_idx].id)
-            // }
-            // // Get the table
-            // let table:HTMLElement = document.getElementById("cartTable")
-            // let tbody = document.getElementsByTagName("tbody")[0]
-            // for(const item_idx in unique_ids){
-            //     let curr_id = unique_ids[item_idx]
-            //     let new_row = tbody.insertRow(parseInt(item_idx))
-            // }
-        }
-    };
     return Cart;
 }());
 var curr_cart = new Cart();
+function displayCart() {
+    console.log("In the display function -- !");
+    // Once on the cart page -- show the part on a table
+    // Get the cart information from storage
+    var exists = curr_cart.checkStorage();
+    console.log("Here is your array size = " + curr_cart.cart_items.length);
+    console.log("Here is the current array = " + JSON.stringify(curr_cart.cart_items));
+    // Get the table
+    var table = document.getElementById("cartTable");
+    var tbody = document.getElementsByTagName("tbody")[0];
+    for (var i = 0; i < curr_cart.cart_items.length; i++) {
+        var new_row = tbody.insertRow(i);
+        var name_cell = new_row.insertCell(0);
+        var quantity_cell = new_row.insertCell(1);
+        var price_cell = new_row.insertCell(2);
+        name_cell.innerHTML = curr_cart.cart_items[i]['name'];
+        quantity_cell.innerHTML = curr_cart.cart_items[i]['quantity'];
+        price_cell.innerHTML = curr_cart.cart_items[i]['price'];
+    }
+}
 // OnClick Functions
 function product_101() {
     curr_cart.addToCart("101");
