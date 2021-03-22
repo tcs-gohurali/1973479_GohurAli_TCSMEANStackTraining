@@ -4,8 +4,10 @@ class Cart{
 
     addToCart(product_id:string):void{
         // Check if items already exist in storage
+        // also updates items array from storage
         this.checkStorage()
 
+        // Gets the price from the HTML tag
         let product_price:string = document.getElementById("price_"+product_id).innerHTML.split('$')[1]
         // this.cart_items.push({
         //     id : product_id,
@@ -13,10 +15,24 @@ class Cart{
         //     price : product_price
         // })
 
+        // -- UPDATE QUANTITY -- 
+        console.log("-- UPDATE QUANTITY --")
+
+        // check the cart number of items
         if(this.cart_items.length > 0){
+            console.log("pooooooooooooooooooooooooop")
+            // if greater than 0 then we need to ---
             for(let i = 0; i < this.cart_items.length; i++){
-                const obj = JSON.parse(JSON.stringify(this.cart_items[i]))
-                console.log(product_id + " --- " + obj[product_id])
+                if(product_id === this.cart_items[i]['product_id']){
+                    console.log("This is the same product ++++++++++++")
+                    this.cart_items[i]['quantity']++
+                }
+                // const poop = this.cart_items[i]
+                // console.log("pooper " + poop[101]['name'])
+                // const obj = JSON.stringify(this.cart_items[i])
+                // console.log(obj)
+                // console.log(product_id + " --- " + obj[product_id])
+                
                 // if(product_id === obj[product_id]){
                 //     obj[product_id].quantity++
                 // }
@@ -34,13 +50,14 @@ class Cart{
             }
         }
         else{
+            console.log("This is the current product id = " + product_id)
             this.cart_items.push(
                 {
-                    product_id: {
-                        name : document.getElementById("title_"+product_id).innerHTML,
-                        price : product_price,
-                        quantity: 1
-                    }           
+                    product_id: product_id,
+                    name : document.getElementById("title_"+product_id).innerHTML,
+                    price : product_price,
+                    quantity: 1
+                          
                 }
             )
         }
