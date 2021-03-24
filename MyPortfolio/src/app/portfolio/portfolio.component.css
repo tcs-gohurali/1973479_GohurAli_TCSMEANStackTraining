@@ -5,3 +5,30 @@
 h3,label, table,th,td{
     color: white;
 }
+th,td{
+    text-align: center;
+}
+
+.contactTableEntry{
+    border: 5px solid rgb(0, 195, 255);
+    border-radius: 10px;
+    
+
+}
+
+table{
+    margin: 50px auto;
+    border: 5px solid rgb(0, 1, 255);
+    padding: 15px;
+}
+
+
+.contactEntry{
+    width : 400px;
+    height: 150px;
+    margin: auto;
+    padding: 20px;
+    border: 5px solid white;
+    border-radius: 20px;
+    text-align: center;
+}

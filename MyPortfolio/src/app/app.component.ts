@@ -9,6 +9,6 @@ export class AppComponent {
   title = 'MyPortfolio';
 
   clearStorage(){
-    localStorage.clear()
+    sessionStorage.clear()
   }
 }

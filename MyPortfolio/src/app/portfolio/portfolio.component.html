@@ -1,15 +1,18 @@
 <div class="portfolioPage">
     <h3>Welcome, {{username}}!</h3>
     
-    <form [formGroup]="contactRef" (ngSubmit)="saveContactInfo()">
-        <label>Contact Name: </label>
-        <input type="text" formControlName="contactName">
-        <br>
-        <label>Phone No.</label>
-        <input type="text" formControlName="phoneNum">
-        <br>
-        <input type="submit" class="btn btn-primary" value="Save">
-    </form>
+    <div class="contactEntry">
+        <form [formGroup]="contactRef" (ngSubmit)="saveContactInfo()">
+            <label>Contact Name: </label>
+            <input type="text" formControlName="contactName">
+            <br>
+            <label>Phone Number: </label>
+            <input type="text" formControlName="phoneNum">
+            <br>
+            <input type="submit" class="btn btn-primary" value="Save">
+        </form>
+    </div>
+    
 
     <table>
         <thead>
@@ -18,9 +21,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let contact of contacts">
-                <td *ngFor="let item of contact">{{item}}</td>
-            </tr>
-            
+                <td *ngFor="let item of contact">
+                    {{item}}
+                </td>
+            </tr> 
         </tbody>
     </table>
     

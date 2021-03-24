@@ -14,7 +14,9 @@ export class PortfolioComponent implements OnInit {
   })
   username:string = localStorage['username']
 
-  contacts:Array<Array<string>> = new Array(); //[["Joe","123"],["Bob","456"]]
+  //contacts:Array<Array<string>> = new Array(); //[["Joe","123"],["Bob","456"]]
+  contacts:Array<Array<string>> = [["Joe","123"],["Bob","456"]]
+  
   constructor() { }
 
   ngOnInit(): void {

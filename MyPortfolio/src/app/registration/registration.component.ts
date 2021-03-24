@@ -24,10 +24,10 @@ export class RegistrationComponent implements OnInit {
 
   registerAccount(){
     console.log("Registering acount...")
-    localStorage.setItem("fname",this.registrationRef.value['fname'])
-    localStorage.setItem("lname",this.registrationRef.value['lanem'])
-    localStorage.setItem("username",this.registrationRef.value['username'])
-    localStorage.setItem("password",this.registrationRef.value['password'])
+    sessionStorage.setItem("fname",this.registrationRef.value['fname'])
+    sessionStorage.setItem("lname",this.registrationRef.value['lanem'])
+    sessionStorage.setItem("username",this.registrationRef.value['username'])
+    sessionStorage.setItem("password",this.registrationRef.value['password'])
     this.msg = "Account Registered!"
     this.router.navigate(['../login'])
     
