@@ -8,9 +8,11 @@ import { FormGroup,FormControl } from '@angular/forms';
 })
 export class PortfolioComponent implements OnInit {
 
+  contactName:FormControl = new FormControl();
+  phoneNum:FormControl = new FormControl()
   contactRef = new FormGroup({
-    contactName:new FormControl(),
-    phoneNum:new FormControl()
+    contactName:this.contactName,
+    phoneNum:this.phoneNum
   })
   username:string = sessionStorage['username']
 
@@ -25,9 +27,15 @@ export class PortfolioComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clearForm(){
+    this.contactName.setValue("")
+    this.phoneNum.setValue("")
+  }
+
   saveContactInfo(){
     this.contacts.push([this.contactRef.value['contactName'],this.contactRef.value['phoneNum']])
     console.log(this.contacts)
+    this.clearForm()
   }
 
 }

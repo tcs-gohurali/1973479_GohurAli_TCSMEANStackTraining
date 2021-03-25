@@ -12,6 +12,9 @@ th{
     padding: 5px;
     font-size: 25px;
 }
+td{
+    font-size: 20px;
+}
 
 .contactTableEntry{
     border: 5px solid rgb(0, 195, 255);
