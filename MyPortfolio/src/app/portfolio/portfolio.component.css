@@ -8,6 +8,10 @@ h3,label, table,th,td{
 th,td{
     text-align: center;
 }
+th{
+    padding: 5px;
+    font-size: 25px;
+}
 
 .contactTableEntry{
     border: 5px solid rgb(0, 195, 255);
@@ -16,19 +20,36 @@ th,td{
 
 }
 
+.tableTitleCell{
+    text-align: center;
+    border: 5px solid #233d87;
+}
 table{
-    margin: 50px auto;
-    border: 5px solid rgb(0, 1, 255);
+    margin: auto;
+    border: 5px solid #233d87;
     padding: 15px;
 }
 
 
 .contactEntry{
-    width : 400px;
-    height: 150px;
-    margin: auto;
-    padding: 20px;
-    border: 5px solid white;
-    border-radius: 20px;
+    margin: 25px auto;
     text-align: center;
+    width: 400px;
+    height: 400px;
+    background-color: #233d87;
+    border: 5px solid black;
+    border-radius: 30px;
+}
+
+.contactBtn{
+    margin: auto;
+    width: 100px;
+}
+
+.row{
+    margin: 25px;
+}
+
+.fr {
+    margin: 0px;
 }

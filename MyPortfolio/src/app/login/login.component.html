@@ -1,12 +1,32 @@
 <div class="loginForm">
-    <h3>Login</h3>
+
+    <div class="row">
+        <h3>Login</h3>
+    </div>
+    
+    
     <form [formGroup]="loginRef" (ngSubmit)="checkCredentials()">
-        <label for="">Username: </label> <input type="text" formControlName="username">
-        <br>
-        <label for="">Password: </label> <input type="password" formControlName="password">
-        <br>
-        <input type="submit" class="btn btn-primary" value="Login">
-        <a routerLink="../create"><input type="reset" class="btn btn-outline-light" value="Register"></a>
+        <div class="row">
+            <div class="col">
+                <label for="">Username: </label>
+            </div>
+            <div class="col">
+                <input type="text" formControlName="username">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="">Password: </label>
+            </div>
+            <div class="col">
+                <input type="password" formControlName="password">
+            </div>
+        </div>
+        <div class="row loginBtns">
+            <input type="submit" class="loginBtn btn btn-dark" value="Login">
+            <input type="reset" class="loginBtn btn btn-dark" value="Register" routerLink="../create">
+        </div>
     </form>
     {{msg}}
 </div>

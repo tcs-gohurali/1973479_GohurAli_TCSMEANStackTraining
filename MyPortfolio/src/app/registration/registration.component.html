@@ -1,16 +1,51 @@
 <div class="registerForm">
-    <h3>Register Account</h3>
+
+    <div class="row">
+        <h3>Register Account</h3>
+    </div>
+
+    
     <form [formGroup]="registrationRef" (ngSubmit)="registerAccount()">
-        <label for="">First Name: </label> <input type="text" formControlName="fname">
-        <br>
-        <label for="">Last Name: </label> <input type="text" formControlName="lname">
-        <br>
-        <label for="">Username: </label> <input type="text" formControlName="username">
-        <br>
-        <label for="">Password: </label> <input type="password" formControlName="password">
-        <br>
-        <input type="submit" class="btn btn-primary" value="Register">
-        <input type="reset" class="btn btn-outline-light" value="Reset">
+        <div class="row">
+            <div class="col">
+                <label for="">First Name: </label>
+            </div>
+            <div class="col">
+                <input type="text" formControlName="fname">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="">Last Name: </label>
+            </div>
+            <div class="col">
+                <input type="text" formControlName="lname">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="">Username: </label>
+            </div>
+            <div class="col">
+                <input type="text" formControlName="username">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="">Password: </label>
+            </div>
+            <div class="col">
+                <input type="password" formControlName="password">
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" class="registerBtn btn btn-dark" value="Register">
+            <input type="reset" class="registerBtn btn btn-dark" value="Reset">
+        </div>
     </form>
     {{msg}}
 </div>

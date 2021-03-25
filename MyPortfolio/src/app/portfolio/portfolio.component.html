@@ -2,30 +2,55 @@
     <h3>Welcome, {{username}}!</h3>
     
     <div class="contactEntry">
+        <div class="row">
+            <h3>Contact Form</h3>
+        </div>
         <form [formGroup]="contactRef" (ngSubmit)="saveContactInfo()">
-            <label>Contact Name: </label>
-            <input type="text" formControlName="contactName">
-            <br>
-            <label>Phone Number: </label>
-            <input type="text" formControlName="phoneNum">
-            <br>
-            <input type="submit" class="btn btn-primary" value="Save">
+            <div class="row">
+                <div class="col">
+                    <label>Contact Name: </label>
+                </div>
+                <div class="col">
+                    <input type="text" formControlName="contactName">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Phone Number: </label>
+                </div>
+                <div class="col">
+                    <input type="text" formControlName="phoneNum">
+                </div>
+            </div>
+
+            <div class="row">
+                <input type="submit" class="contactBtn btn btn-dark" value="Save">
+            </div>
+            
         </form>
     </div>
     
-
-    <table>
-        <thead>
-            <th>Name</th>
-            <th>Phone</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let contact of contacts">
-                <td *ngFor="let item of contact">
-                    {{item}}
-                </td>
-            </tr> 
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="row tableTitleCell fr">
+            <h3 class="tableTitle">Contact Details</h3>
+        </div>
+        <div class="row fr">
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Phone</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contact of contacts">
+                        <td *ngFor="let item of contact">
+                            {{item}}
+                        </td>
+                    </tr> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
     
 </div>

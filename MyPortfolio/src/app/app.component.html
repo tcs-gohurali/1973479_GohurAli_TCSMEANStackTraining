@@ -1,10 +1,14 @@
 <div>
-    <h2>MyPortfolio</h2>
-    <h2>Angular Routing Example</h2>
-    <a routerLink="login">Login Page</a>
-    <a routerLink="portfolio">Portfolio</a>
-    <a routerLink="reg">Registration</a>
-    <input type="button" class="btn btn-outline-info" value="Clear Storage" (click)="clearStorage()">
+    <div class="websiteTitle">
+        <h2 class="title">MyPortfolio</h2>
+    </div>
+    
+    <div class="websiteNavBar">
+        <a class="navItem" routerLink="login">Login Page</a>
+        <a class="navItem" routerLink="portfolio">Portfolio</a>
+        <a class="navItem" routerLink="create">Registration</a>
+        <input class="navItem" type="button" class="btn btn-outline-info" value="Clear Storage" (click)="clearStorage()">
+    </div>
 </div>
 <hr style="border:5px solid black;">
 <router-outlet></router-outlet>

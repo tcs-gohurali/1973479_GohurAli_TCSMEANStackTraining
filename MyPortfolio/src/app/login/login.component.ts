@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   checkCredentials(){
-    if(!localStorage['username']){
+    if(!sessionStorage['username']){
       this.msg = "No Credentials!"
     }
     else{
@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
       this.msg = "Invalid Credentials"
     }
     
-    let stored_username:string = localStorage['username']
-    let stored_password:string = localStorage['password']
+    let stored_username:string = sessionStorage['username']
+    let stored_password:string = sessionStorage['password']
 
     let attempted_username:string = this.loginRef.value['username']
     let attempted_password:string = this.loginRef.value['password']

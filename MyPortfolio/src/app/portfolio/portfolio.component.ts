@@ -12,10 +12,13 @@ export class PortfolioComponent implements OnInit {
     contactName:new FormControl(),
     phoneNum:new FormControl()
   })
-  username:string = localStorage['username']
+  username:string = sessionStorage['username']
 
-  //contacts:Array<Array<string>> = new Array(); //[["Joe","123"],["Bob","456"]]
-  contacts:Array<Array<string>> = [["Joe","123"],["Bob","456"]]
+  // An array of array of strings which will be of size (n,2)
+  contacts:Array<Array<string>> = new Array(); 
+
+  // [DEBUG]: This is array for debugging
+  //contacts:Array<Array<string>> = [["Joe","123"],["Bob","456"]]
   
   constructor() { }
 
