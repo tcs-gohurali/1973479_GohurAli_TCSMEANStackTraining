@@ -8,7 +8,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 
 import {ReactiveFormsModule} from '@angular/forms'
-
+import {AuthGuard} from "./login/authguard"
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,7 @@ import {ReactiveFormsModule} from '@angular/forms'
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
