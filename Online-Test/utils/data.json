@@ -1,0 +1,34 @@
+{
+    "questions": [
+        {
+            "question": "what is your name?",
+            "choices": [
+                "a. Johnny",
+                "b. Bob",
+                "c. Gohur",
+                "d. Dude"
+            ],
+            "solution": "c"
+        },
+        {
+            "question": "which state is seattle located in?",
+            "choices": [
+                "a. Maryland",
+                "b. North Dakota",
+                "c. Montana",
+                "d. Gohur"
+            ],
+            "solution": "d"
+        },
+        {
+            "question": "what is the city for LA?",
+            "choices": [
+                "a. Las Vegas",
+                "b. Los Angeles",
+                "c. Los Santos",
+                "d. New York"
+            ],
+            "solution": "b"
+        }
+    ]
+}
