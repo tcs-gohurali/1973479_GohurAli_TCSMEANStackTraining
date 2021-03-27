@@ -7,7 +7,14 @@
 
 
     <div class="question">
-        <h3 class="question_q" *ngFor="let q of this.service.questions">{{q}}</h3>
+        <div class="question_q" *ngFor="let q of this.service.questions;index as idx">
+            <h3>{{q}}</h3>
+            <div class="question_c form-check" *ngFor="let c of this.service.choices[idx];index as idx_c">
+                <input type="radio" class="form-check-input" name="{{idx}}" id="{{idx+idx_c}}">
+                <label class="form-check-label" for="{{idx+idx_c}}">{{c}}</label>
+            </div>
+        </div>
+        
     </div>
 </div>
 <router-outlet></router-outlet>
