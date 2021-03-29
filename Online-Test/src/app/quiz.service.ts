@@ -16,6 +16,7 @@ export class QuizService{
 
     // -- User Choices --
     user_selection:Array<Array<any>> = []
+    test_scored:boolean = false
 
     constructor(public http:HttpClient){}
 
@@ -28,7 +29,6 @@ export class QuizService{
     }
 
     setData(data_obj:any){
-        console.log("bruh wtf")
         console.log(data_obj)
         this.quizData = data_obj
         console.log("done")

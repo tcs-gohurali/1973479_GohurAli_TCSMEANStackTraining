@@ -14,6 +14,8 @@ export class QuizPageComponent implements OnInit {
   // Fields ---
   data_obj:any = {}
 
+  user_score:Array<any> = []
+
   async ngOnInit() {
     await this.loadData()
     this.service.prepData()
@@ -61,10 +63,17 @@ export class QuizPageComponent implements OnInit {
       }
 
     }
+    
+    // sort the array by question order -- sort by the first column
+    this.service.user_selection = this.service.user_selection.sort(function(a,b){
+      return a[0]-b[0]
+    })
     console.log(this.service.user_selection)
   }
   score(){
     //assert(this.service.user_selection.length == this.service.solutions.length);
+
+    this.document_highlightAnswers()
 
     console.log("******** SCORING ************")
     console.log("Scoring the following selections!" + this.service.user_selection)
@@ -77,6 +86,30 @@ export class QuizPageComponent implements OnInit {
     user_score /= this.service.user_selection.length
     if(user_score >= 0.7){
       console.log("Passed!")
+      this.user_score = ["Passed!",user_score*100,user_score*this.service.user_selection.length,this.service.solutions.length,"green"]
+    }
+    else if(user_score < 0.7){
+      this.user_score = ["Failed!",user_score*100,user_score*this.service.user_selection.length,this.service.solutions.length,"red"]
+    }
+    this.service.test_scored = true
+  }
+
+  document_highlightAnswers(){
+    for(let q = 0; q < this.service.questions.length; q++){
+      for(let c = 0; c < this.service.choices[q].length;c++){
+        let el = document.getElementById(`choice_${q}_${c}`);
+        let choice = el?.textContent?.substr(0,1)
+        let user_choice = this.service.user_selection[q][1]
+
+        if(choice == user_choice || choice == this.service.solutions[q]){
+          if(user_choice == this.service.solutions[q] || choice == this.service.solutions[q]){
+            el!.style.border = "5px solid green";
+          }
+          else if(user_choice != this.service.solutions[q]){
+            el!.style.border = "5px solid red";
+          }
+        }
+      }
     }
   }
 }
