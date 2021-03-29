@@ -36,6 +36,47 @@ export class QuizPageComponent implements OnInit {
     console.log("*****************************")
   }
 
+  update_score(label_content:string,question_idx:number){
+    console.log("Testing")
+    // We need to set the value
+    let choice_letter = label_content.substr(0,1)
 
+    if(this.service.user_selection.length == 0){
+      this.service.user_selection.push([question_idx,choice_letter])
+    }
+    else{
+      // check user selections
+      for(let i = 0; i < this.service.user_selection.length; i++){
+        if(question_idx ==  this.service.user_selection[i][0]){
+          console.log("Found it")
+          // now we need to replace with the new selection
+          this.service.user_selection[i][1] = choice_letter
+          break
+        }
+        else if(i == this.service.user_selection.length - 1 && question_idx !=  this.service.user_selection[i][0]){
+          // didn't find it
+          console.log("Didn't find it")
+          this.service.user_selection.push([question_idx,choice_letter])
+        }
+      }
 
+    }
+    console.log(this.service.user_selection)
+  }
+  score(){
+    //assert(this.service.user_selection.length == this.service.solutions.length);
+
+    console.log("******** SCORING ************")
+    console.log("Scoring the following selections!" + this.service.user_selection)
+    let user_score = 0
+    for(let i = 0; i < this.service.user_selection.length; i++){
+      if(this.service.user_selection[i][1] == this.service.solutions[i]){
+        user_score++
+      }
+    }
+    user_score /= this.service.user_selection.length
+    if(user_score >= 0.7){
+      console.log("Passed!")
+    }
+  }
 }

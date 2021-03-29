@@ -1,34 +1,150 @@
 {
     "questions": [
         {
-            "question": "what is your name?",
-            "choices": [
-                "a. Johnny",
-                "b. Bob",
-                "c. Gohur",
-                "d. Dude"
-            ],
-            "solution": "c"
-        },
-        {
-            "question": "which state is seattle located in?",
+            "question": "what state is seattle located in?",
             "choices": [
                 "a. Maryland",
                 "b. North Dakota",
                 "c. Montana",
-                "d. Gohur"
+                "d. Washington"
             ],
             "solution": "d"
         },
         {
-            "question": "what is the city for LA?",
+            "question": "which of the following are not javascript data types?",
             "choices": [
-                "a. Las Vegas",
-                "b. Los Angeles",
-                "c. Los Santos",
-                "d. New York"
+                "a. number",
+                "b. object",
+                "c. string",
+                "d. float"
+            ],
+            "solution": "d"
+        },
+        {
+            "question": "which company developed javascript?",
+            "choices": [
+                "a. Netscape",
+                "b. Bell Labs",
+                "c. Sun Microsystems",
+                "d. IBM"
+            ],
+            "solution": "a"
+        },
+        {
+            "question": "Inside which HTML element do we put the JavaScript?",
+            "choices": [
+                "a. <script>",
+                "b. <head>",
+                "c. <meta>",
+                "d. <style>"
+            ],
+            "solution": "a"
+        },
+        {
+            "question": "when were black holes discovered?",
+            "choices": [
+                "a. 2019",
+                "b. 1964",
+                "c. 1972",
+                "d. 1958"
             ],
             "solution": "b"
+        },
+        {
+            "question": "which ocean is the largest?",
+            "choices": [
+                "a. indian ocean",
+                "b. atlanic ocean",
+                "c. pacific ocean",
+                "d. arctic ocean"
+            ],
+            "solution": "c"
+        },
+        {
+            "question": "earth is which planet from the sun?",
+            "choices": [
+                "a. fifth",
+                "b. fourth",
+                "c. third",
+                "d. eighth"
+            ],
+            "solution": "c"
+        },
+        {
+            "question": "is the hubble space telescope still operating?",
+            "choices": [
+                "a. true",
+                "b. false"
+            ],
+            "solution": "a"
+        },
+        {
+            "question": "which company bought github?",
+            "choices": [
+                "a. google",
+                "b. apple",
+                "c. uber",
+                "d. microsoft"
+            ],
+            "solution": "d"
+        },
+        {
+            "question": "what company developed the deep learning framework called PyTorch?",
+            "choices": [
+                "a. facebook",
+                "b. amazon",
+                "c. google",
+                "d. adobe"
+            ],
+            "solution": "a"
+        },
+        {
+            "question": "what year was the SR-71 Blackbird decommissioned by NASA?",
+            "choices": [
+                "a. 1971",
+                "b. 1999",
+                "c. 1998",
+                "d. 1997"
+            ],
+            "solution": "b"
+        },
+        {
+            "question": "where is stonehenge?",
+            "choices": [
+                "a. england",
+                "b. scotland",
+                "c. pakistan",
+                "d. paris"
+            ],
+            "solution": "a"
+        },
+        {
+            "question": "who wrote the ancient greek epic poem The Odyssey?",
+            "choices": [
+                "a. plato",
+                "b. aristotle",
+                "c. homer",
+                "d. socrates"
+            ],
+            "solution": "c"
+        },
+        {
+            "question": "was git developed by the same developer for linux?",
+            "choices": [
+                "a. true",
+                "b. false"
+            ],
+            "solution": "a"
+        },
+        {
+            "question": "which major cloud service did the pentagon sign with?",
+            "choices": [
+                "a. AWS",
+                "b. Heroku",
+                "c. Azure",
+                "d. GCP"
+            ],
+            "solution": "c"
         }
     ]
 }

@@ -1,15 +1,71 @@
-a. Johnny
-b. Bob
-c. Gohur
-d. Dude
----
 a. Maryland
 b. North Dakota
 c. Montana
-d. Gohur
+d. Washington
 ---
-a. Las Vegas
-b. Los Angeles
-c. Los Santos
-d. New York
+a. number
+b. object
+c. string
+d. float
+---
+a. Netscape
+b. Bell Labs
+c. Sun Microsystems
+d. IBM
+---
+a. <script>
+b. <head>
+c. <meta>
+d. <style>
+---
+a. 2019
+b. 1964
+c. 1972
+d. 1958
+---
+a. indian ocean
+b. atlanic ocean
+c. pacific ocean
+d. arctic ocean
+---
+a. fifth
+b. fourth
+c. third
+d. eighth
+---
+a. true
+b. false
+---
+a. google
+b. apple
+c. uber
+d. microsoft
+---
+a. facebook
+b. amazon
+c. google
+d. adobe
+---
+a. 1971
+b. 1999
+c. 1998
+d. 1997
+---
+a. england
+b. scotland
+c. pakistan
+d. paris
+---
+a. plato
+b. aristotle
+c. homer
+d. socrates
+---
+a. true
+b. false
+---
+a. AWS
+b. Heroku
+c. Azure
+d. GCP
 ---

@@ -1,3 +1,15 @@
-what is your name?
-which state is seattle located in?
-what is the city for LA?
+what state is seattle located in?
+which of the following are not javascript data types?
+which company developed javascript?
+Inside which HTML element do we put the JavaScript?
+when were black holes discovered?
+which ocean is the largest?
+earth is which planet from the sun?
+is the hubble space telescope still operating?
+which company bought github?
+what company developed the deep learning framework called PyTorch?
+what year was the SR-71 Blackbird decommissioned by NASA?
+where is stonehenge?
+who wrote the ancient greek epic poem The Odyssey?
+was git developed by the same developer for linux?
+which major cloud service did the pentagon sign with?

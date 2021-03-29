@@ -9,9 +9,13 @@ import { Quiz } from "./quiz.model";
 export class QuizService{
     quizData = {}
 
+    // -- JSON Content Arrays --
     questions:Array<string> = []
     choices:Array<Array<string>> = []
     solutions:Array<string> = []
+
+    // -- User Choices --
+    user_selection:Array<Array<any>> = []
 
     constructor(public http:HttpClient){}
 
