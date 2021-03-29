@@ -33,7 +33,6 @@ export class QuizPageComponent implements OnInit {
     console.log("--- DONE Loading Data ---")
     console.log(this.data_obj)
     this.service.setData(this.data_obj)
-    console.log("HICKORY DICKORY DOCK")
     console.log(this.service.quizData)
     console.log("*****************************")
   }
