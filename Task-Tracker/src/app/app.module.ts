@@ -4,6 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { TaskManagerComponent } from './task-manager/task-manager.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
+
+import { MatInputModule } from '@angular/material/input'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatCardModule } from '@angular/material/card'
+import { MatButtonModule } from '@angular/material/button'
+import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -12,7 +20,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MatInputModule,MatFormFieldModule,MatCardModule,MatButtonModule,MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,61 @@
-<p>task-manager works!</p>
+<div>
+    
+
+    <div class="container">
+        <h2>Add Task Details</h2>
+
+        <div class="row">
+            <div class="col" style="border: 5px solid black">
+                <form #taskRef="ngForm" (ngSubmit)="addTask(taskRef.value)">
+                    <mat-form-field>
+                        <input matInput type="text" name="empid" placeholder="Employee ID" ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput type="text" name="name" placeholder="Name" ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput type="text" name="task" placeholder="Task" ngModel>
+                    </mat-form-field>
+                    <br>
+                    <!-- Deadline -->
+            
+                    <h4>Deadline</h4>
+            
+                    <mat-form-field class="date mm">
+                        <input matInput type="text" name="month" placeholder="MM" ngModel>
+                    </mat-form-field>
+                    <mat-form-field class="date dd">
+                        <input matInput type="text" name="day" placeholder="DD" ngModel>
+                    </mat-form-field>
+                    <mat-form-field class="date yyyy">
+                        <input matInput type="text" name="year" placeholder="YYYY" ngModel>
+                    </mat-form-field>
+                    <br>
+                    <button mat-stroked-button color="primary" type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="col">
+
+                <table style="border:2px solid black">
+                    <thead>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Task</th>
+                        <th>Deadline</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of this.service.tasks_dict">
+                            <td>{{t["empid"]}}</td>
+                            <td>{{t["name"]}}</td>
+                            <td>{{t['task']}}</td>
+                            <td>{{t['month']}}/{{t['day']}}/{{t['year']}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+            </div>
+        </div>
+    </div>
+</div>
