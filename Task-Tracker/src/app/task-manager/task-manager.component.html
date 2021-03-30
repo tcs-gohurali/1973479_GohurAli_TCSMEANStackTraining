@@ -2,42 +2,46 @@
     
 
     <div class="container">
-        <h2>Add Task Details</h2>
 
         <div class="row">
-            <div class="col" style="border: 5px solid black">
-                <form #taskRef="ngForm" (ngSubmit)="addTask(taskRef.value)">
-                    <mat-form-field>
-                        <input matInput type="text" name="empid" placeholder="Employee ID" ngModel>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field>
-                        <input matInput type="text" name="name" placeholder="Name" ngModel>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field>
-                        <input matInput type="text" name="task" placeholder="Task" ngModel>
-                    </mat-form-field>
-                    <br>
-                    <!-- Deadline -->
-            
-                    <h4>Deadline</h4>
-            
-                    <mat-form-field class="date mm">
-                        <input matInput type="text" name="month" placeholder="MM" ngModel>
-                    </mat-form-field>
-                    <mat-form-field class="date dd">
-                        <input matInput type="text" name="day" placeholder="DD" ngModel>
-                    </mat-form-field>
-                    <mat-form-field class="date yyyy">
-                        <input matInput type="text" name="year" placeholder="YYYY" ngModel>
-                    </mat-form-field>
-                    <br>
-                    <button mat-stroked-button color="primary" type="submit">Submit</button>
-                    <button mat-stroked-button color="secondary" type="reset">Reset</button>
-                </form>
+            <div class="col-3">
+                
+                <div class="TaskFormContainer">
+                    <h2 class="formTitle">Post your Todo Task!</h2>
+                    <form class="taskForm" #taskRef="ngForm" (ngSubmit)="addTask(taskRef.value)">
+                        <mat-form-field>
+                            <input matInput type="text" name="empid" placeholder="Employee ID" ngModel>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field>
+                            <input matInput type="text" name="name" placeholder="Name" ngModel>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field>
+                            <input matInput type="text" name="task" placeholder="Task" ngModel>
+                        </mat-form-field>
+                        <br>
+                        <!-- Deadline -->
+                
+                        <h4>Deadline</h4>
+                
+                        <mat-form-field class="date mm">
+                            <input matInput type="text" name="month" placeholder="MM" ngModel>
+                        </mat-form-field>
+                        <mat-form-field class="date dd">
+                            <input matInput type="text" name="day" placeholder="DD" ngModel>
+                        </mat-form-field>
+                        <mat-form-field class="date yyyy">
+                            <input matInput type="text" name="year" placeholder="YYYY" ngModel>
+                        </mat-form-field>
+                        <br>
+                        <button class="formButton" mat-stroked-button color="primary" type="submit">Submit</button>
+                        <button class="formButton" mat-stroked-button color="secondary" type="reset">Reset</button>
+                    </form>
+                </div>
+                
             </div>
-            <div class="col">
+            <div class="col-9">
 
                 <!-- <table style="border:2px solid black">
                     <thead>
@@ -74,7 +78,14 @@
 
                     <ng-container matColumnDef="deadline">
                         <th class="theader" mat-header-cell *matHeaderCellDef>Deadline</th>
-                        <td class="tdata" mat-cell *matCellDef="let t"> {{t.year}} </td>
+                        <td class="tdata" mat-cell *matCellDef="let t"> {{t.month}}/{{t.day}}/{{t.year}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="completed">
+                        <th class="theader" mat-header-cell *matHeaderCellDef>Completed</th>
+                        <td class="tdata" mat-cell *matCellDef="let t">
+                            <button mat-stroked-button color="secondary" id="{{t.id}}_completed" (click)="removeTask(t)"> &#9989; </button>
+                        </td>
                     </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

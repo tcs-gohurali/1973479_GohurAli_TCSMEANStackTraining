@@ -25,7 +25,8 @@ import { environment } from '../environments/environment'
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    MatInputModule,MatFormFieldModule,MatCardModule,MatButtonModule,MatTableModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    MatInputModule,MatFormFieldModule,MatCardModule,MatButtonModule,MatTableModule, 
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material/table'
 export class TaskManagerComponent implements OnInit {
 
   dataSource = []
-  displayedColumns: string[] = ['empid', 'name', 'task', 'deadline'];
+  displayedColumns: string[] = ['empid', 'name', 'task', 'deadline','completed'];
 
   constructor(public service:TaskService) { }
 
@@ -33,5 +33,9 @@ export class TaskManagerComponent implements OnInit {
   addTask(info:any){
     // Post the Task to the JSON
     this.service.postTask(info)
+  }
+
+  removeTask(ref:any){
+    this.service.deleteTask(ref)
   }
 }

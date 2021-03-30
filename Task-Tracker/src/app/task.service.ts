@@ -17,6 +17,10 @@ export class TaskService {
     this.http.post("http://localhost:3000/tasks",task).subscribe(result=>console.log(result),error=>console.log(error))
   }
 
+  deleteTask(task:any){
+    this.http.delete(`http://localhost:3000/tasks/${task.id}`).subscribe(result=>console.log(result),error=>console.log(error))
+  }
+
   async getTask(){
     let resp = await this.http.get<Observable<Task[]>>("http://localhost:3000/tasks").toPromise()
     console.log("Here is the resp")
