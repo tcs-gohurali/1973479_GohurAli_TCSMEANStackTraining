@@ -2,3 +2,17 @@
     width: 50px;
     margin: 5px;
 }
+
+/* th{
+    padding: 50px;
+    margin: 50px;
+} */
+
+.theader{
+    text-align: center;
+}
+
+.tdata{
+    text-align: center;
+    padding: 25px;
+}
