@@ -18,7 +18,7 @@
                         </mat-form-field>
                         <br>
                         <mat-form-field>
-                            <input matInput type="text" name="task" placeholder="Task" ngModel>
+                            <textarea matInput type="text" name="task" placeholder="Task" ngModel></textarea>
                         </mat-form-field>
                         <br>
                         <!-- Deadline -->
@@ -60,7 +60,7 @@
                     </tbody>
                 </table> -->
 
-                <table mat-table [dataSource]="this.service.tasks_dict">
+                 <table mat-table [dataSource]="this.service.tasks_dict">
                     <ng-container matColumnDef="empid">
                         <th class="theader" mat-header-cell *matHeaderCellDef>Employee ID</th>
                         <td class="tdata" mat-cell *matCellDef="let t"> {{t.empid}} </td>
@@ -90,9 +90,7 @@
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
                 </table>
-    
             </div>
         </div>
     </div>

@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button'
 import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar'
+
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment'
 
@@ -25,7 +27,7 @@ import { environment } from '../environments/environment'
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    MatInputModule,MatFormFieldModule,MatCardModule,MatButtonModule,MatTableModule, 
+    MatInputModule,MatFormFieldModule,MatCardModule,MatButtonModule,MatTableModule,MatToolbarModule, 
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

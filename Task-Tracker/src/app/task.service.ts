@@ -14,11 +14,11 @@ export class TaskService {
   constructor(public http:HttpClient) { }
 
   postTask(task:any){
-    this.http.post("http://localhost:3000/tasks",task).subscribe(result=>console.log(result),error=>console.log(error))
+    this.http.post("http://localhost:3000/tasks",task).subscribe(result=>console.log(result))
   }
 
   deleteTask(task:any){
-    this.http.delete(`http://localhost:3000/tasks/${task.id}`).subscribe(result=>console.log(result),error=>console.log(error))
+    this.http.delete(`http://localhost:3000/tasks/${task.id}`).subscribe(result=>console.log(result))
   }
 
   async getTask(){

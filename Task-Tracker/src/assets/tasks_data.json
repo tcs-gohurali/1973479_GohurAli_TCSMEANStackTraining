@@ -1,22 +1,3 @@
 {
-  "tasks": [
-    {
-      "empid": "1875478",
-      "name": "Johnny",
-      "task": "Debug C++ code for detector",
-      "month": "05",
-      "day": "23",
-      "year": "2010",
-      "id": 3
-    },
-    {
-      "empid": "1973479",
-      "name": "Gohur Hadi",
-      "task": "Do the thing",
-      "month": "02",
-      "day": "29",
-      "year": "2988",
-      "id": 4
-    }
-  ]
+  "tasks": []
 }

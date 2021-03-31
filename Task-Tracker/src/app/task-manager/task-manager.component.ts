@@ -9,7 +9,6 @@ import { MatTableDataSource } from '@angular/material/table'
 })
 export class TaskManagerComponent implements OnInit {
 
-  dataSource = []
   displayedColumns: string[] = ['empid', 'name', 'task', 'deadline','completed'];
 
   constructor(public service:TaskService) { }
@@ -22,20 +21,24 @@ export class TaskManagerComponent implements OnInit {
     console.log(this.service.tasks_obj)
     let json_stringed = JSON.stringify(this.service.tasks_obj)
     this.service.tasks_dict = JSON.parse(json_stringed)
-
   }
 
   async ngOnInit() {
     this.load_data()
-
   }
 
   addTask(info:any){
     // Post the Task to the JSON
+    console.log(info)
     this.service.postTask(info)
+    this.load_data()
+    location.reload()
   }
 
   removeTask(ref:any){
+    this.service.tasks_dict.splice(ref.id-1,1)
     this.service.deleteTask(ref)
+    this.load_data()
+    //location.reload()
   }
 }
