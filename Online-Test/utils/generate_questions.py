@@ -30,6 +30,9 @@ def open_solutions_file():
     return solutions
 
 def prep_data(questions,choices,solutions):
+    assert (len(questions) == len(choices)),"[ASSERT FAILED]: Ensure questions, choices, solutions arrays are same size!"
+    assert (len(choices) == len(solutions)),"[ASSERT FAILED]: Ensure questions, choices, solutions arrays are same size!"
+    
     data = {"questions":[]}
     for idx,q in enumerate(questions):
         question = {}
@@ -46,15 +49,17 @@ def output_json(data):
     print(json_struct)
     sys.stdout = sys.__stdout__
     file.close()
+    print("[DONE]: Successfully generated JSON file!")
 
 def main():
+    # open and fill arrays with questions,choices,and sols data
     questions = open_questions_file()
-    print(questions)
     q2c = open_choices_file()
-    print(q2c)
     solutions = open_solutions_file()
+
+    # populate the dict
     data = prep_data(questions=questions,choices=q2c,solutions=solutions)
-    print(data)
+    # dict -> JSON
     output_json(data)
 
 if __name__ == '__main__':
