@@ -1,0 +1,32 @@
+{
+    "people": [
+        {
+            "fname": "Joe",
+            "lname": "Bobby",
+            "gender": "male",
+            "email": "joe@gmail.com",
+            "current_date": 1617392335219
+        },
+        {
+            "fname": "Sally",
+            "lname": "Smiths",
+            "gender": "female",
+            "email": "sally@gmail.com",
+            "current_date": 1617392365057
+        },
+        {
+            "fname": "Mary",
+            "lname": "Martins",
+            "gender": "female",
+            "email": "mary@martins.com",
+            "current_date": 1617392379318
+        },
+        {
+            "fname": "Johnny",
+            "lname": "DeSmith",
+            "gender": "male",
+            "email": "johnny@live.com",
+            "current_date": 1617392408097
+        }
+    ]
+}
