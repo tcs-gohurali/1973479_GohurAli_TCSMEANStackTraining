@@ -6,3 +6,5 @@
 *.gif
 *.jpg
 *.jpeg
+node_modules/
+package-lock.json
