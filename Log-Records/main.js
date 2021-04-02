@@ -4,29 +4,33 @@ const fs = require('fs')
 
 console.log(logger)
 
-l = new logger.Logger()
+l = new logger.Logger("log.txt")
 
-fname = reader.question("What is your first name? ")
-lname = reader.question("What is your last name? ")
-gender = reader.question("What is your gender? ")
-email = reader.question("What is your email? ")
-current_date = Date.now()
 
-record = {
-    "fname":fname,
-    "lname":lname,
-    "gender":gender,
-    "email":email,
-    "current_date":current_date
+iters = parseInt(reader.question("How many records would you like to enter? "))
+
+for(let i = 0; i < iters; i++){
+
+    fname = reader.question("What is your first name? ")
+    lname = reader.question("What is your last name? ")
+    gender = reader.question("What is your gender? ")
+    email = reader.question("What is your email? ")
+    current_date = Date.now()
+
+    record = {
+        "fname":fname,
+        "lname":lname,
+        "gender":gender,
+        "email":email,
+        "current_date":current_date
+    }
+
+    // Open Existing JSON File
+    data = fs.readFileSync("records.json","utf-8")
+    records_data = JSON.parse(data)
+
+    // Append to the existing JSON
+    records_data["people"].push(record)
+
+    fs.writeFileSync("records.json",JSON.stringify(records_data,null,4))
 }
-
-l.display_records(record)
-
-// Open Existing JSON File
-data = fs.readFileSync("records.json","utf-8")
-records_data = JSON.parse(data)
-
-// Append to the existing JSON
-records_data["people"].push(record)
-
-fs.writeFileSync("records.json",JSON.stringify(records_data,null,4))
