@@ -1,8 +1,6 @@
 const logger = require('./logger')
 const reader = require('readline-sync') 
-const fs = require('fs')
 
-console.log(logger)
 
 iters = parseInt(reader.question("How many records would you like to enter? "))
 

@@ -3,3 +3,11 @@
 {"fname":"John","lname":"Lennon","gender":"male","email":"john@lennon.com"}****** Appended Entry to JSON *******
 ****** User Inputted the Following *******
 {"fname":"Pablo","lname":"Picasso","gender":"male","email":"pablo@pic.com"}****** Appended Entry to JSON *******
+****** User Inputted the Following *******
+{"fname":"Frank","lname":"Valli","gender":"male","email":"fvalli@yahoo.com","current_date":"4/2/2021","current_time":"3:06:03 PM"}****** Appended Entry to JSON *******
+****** User Inputted the Following *******
+{"fname":"Jerry","lname":"Vale","gender":"male","email":"jvale@gmail.com","current_date":"4/2/2021","current_time":"3:06:32 PM"}****** Appended Entry to JSON *******
+****** User Inputted the Following *******
+{"fname":"Rita","lname":"Su","gender":"female","email":"rsu@live.com","current_date":"4/2/2021","current_time":"3:09:06 PM"}****** Appended Entry to JSON *******
+****** User Inputted the Following *******
+{"fname":"Dania","lname":"Ediths","gender":"female","email":"dediths.23@gmail.com","current_date":"4/2/2021","current_time":"3:09:51 PM"}****** Appended Entry to JSON *******
