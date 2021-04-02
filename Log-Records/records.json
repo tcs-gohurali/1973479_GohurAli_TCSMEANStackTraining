@@ -83,6 +83,18 @@
             "gender": "male",
             "email": "Tom@Ford.com",
             "current_date": 1617396194280
+        },
+        {
+            "fname": "John",
+            "lname": "Lennon",
+            "gender": "male",
+            "email": "john@lennon.com"
+        },
+        {
+            "fname": "Pablo",
+            "lname": "Picasso",
+            "gender": "male",
+            "email": "pablo@pic.com"
         }
     ]
 }

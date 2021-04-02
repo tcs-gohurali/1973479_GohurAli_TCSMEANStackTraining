@@ -4,33 +4,18 @@ const fs = require('fs')
 
 console.log(logger)
 
-l = new logger.Logger("log.txt")
-
-
 iters = parseInt(reader.question("How many records would you like to enter? "))
 
+queries = {
+    fname:'What is your first name? ',
+    lname:'What is your last name? ',
+    gender:'What is your gender? ',
+    email:'What is your email? '
+}
+
+l = new logger.Logger("log.txt",queries)
+
 for(let i = 0; i < iters; i++){
-
-    fname = reader.question("What is your first name? ")
-    lname = reader.question("What is your last name? ")
-    gender = reader.question("What is your gender? ")
-    email = reader.question("What is your email? ")
-    current_date = Date.now()
-
-    record = {
-        "fname":fname,
-        "lname":lname,
-        "gender":gender,
-        "email":email,
-        "current_date":current_date
-    }
-
-    // Open Existing JSON File
-    data = fs.readFileSync("records.json","utf-8")
-    records_data = JSON.parse(data)
-
-    // Append to the existing JSON
-    records_data["people"].push(record)
-
-    fs.writeFileSync("records.json",JSON.stringify(records_data,null,4))
+    record = l.promptUser()
+    l.log_record_JSON("records.json",record)
 }

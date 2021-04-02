@@ -1,1 +1,5 @@
-{"fname":"Henry","lname":"Hill","gender":"male","email":"henry@hill.com","current_date":1617395654192}
+****** User Inputted the Following *******
+{"fname":"John","lname":"Lennon","gender":"male","email":"john@lennon.com"}****** User Inputted the Following *******
+{"fname":"John","lname":"Lennon","gender":"male","email":"john@lennon.com"}****** Appended Entry to JSON *******
+****** User Inputted the Following *******
+{"fname":"Pablo","lname":"Picasso","gender":"male","email":"pablo@pic.com"}****** Appended Entry to JSON *******
