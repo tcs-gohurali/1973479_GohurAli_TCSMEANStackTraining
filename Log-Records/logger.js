@@ -17,7 +17,7 @@ class Logger{
         else{
             // Create the log file
             console.log("[LOG]: Created log file here: " + this.log_path)
-            this.create_log_file()
+            this.create_log_file()   
         }
     }
 
@@ -55,9 +55,7 @@ class Logger{
     }
 
     recordsExist(json_loc){
-
-        if(fs.existsSync(json_loc)){
-        }
+        if(fs.existsSync(json_loc)){}
         else{
             let curr_dateTime = this.getCurrentDateTime()
             // JSON records doesn't exists
@@ -65,11 +63,9 @@ class Logger{
             fs.writeFileSync(json_loc,JSON.stringify(records_structure)+'\n',{flag:'a'})
             fs.writeFileSync(this.log_path,`[${curr_dateTime[0]} - ${curr_dateTime[1]}]: === Created JSON Records file ===\n`,{flag:'a'})
         }
-
     }
 
     log_record_JSON(json_loc,record){
-
         // Check if JSON records file exists
         this.recordsExist(json_loc)
 
@@ -98,7 +94,7 @@ class Logger{
     }
 
     delete_log(){
-        fs.unlinkSync("log.txt")
+        fs.unlinkSync(this.log_path)
     }
 }
 
