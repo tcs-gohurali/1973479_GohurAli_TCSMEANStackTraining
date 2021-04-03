@@ -1,132 +1,68 @@
 {
     "people": [
         {
-            "fname": "Joe",
-            "lname": "Bobby",
+            "fname": "Michael",
+            "lname": "Scott",
             "gender": "male",
-            "email": "joe@gmail.com",
-            "current_date": 1617392335219
+            "email": "michael.scott@dundermifflin.com",
+            "current_date": "4/3/2021",
+            "current_time": "12:56:40 PM"
         },
         {
-            "fname": "Sally",
-            "lname": "Smiths",
-            "gender": "female",
-            "email": "sally@gmail.com",
-            "current_date": 1617392365057
+            "fname": "Jim",
+            "lname": "Halpert",
+            "gender": "male",
+            "email": "jimbo@dundermifflin.com",
+            "current_date": "4/3/2021",
+            "current_time": "12:56:58 PM"
         },
         {
-            "fname": "Mary",
-            "lname": "Martins",
+            "fname": "Pam",
+            "lname": "Beasly",
             "gender": "female",
-            "email": "mary@martins.com",
-            "current_date": 1617392379318
+            "email": "pambeasly@dundermifflin.com",
+            "current_date": "4/3/2021",
+            "current_time": "12:57:26 PM"
+        },
+        {
+            "fname": "Walter",
+            "lname": "White",
+            "gender": "male",
+            "email": "ww@blue.com",
+            "current_date": "4/3/2021",
+            "current_time": "12:57:59 PM"
+        },
+        {
+            "fname": "Russell",
+            "lname": "Wilson",
+            "gender": "male",
+            "email": "russell@seahawks.com",
+            "current_date": "4/3/2021",
+            "current_time": "12:59:39 PM"
+        },
+        {
+            "fname": "Michael",
+            "lname": "Jordan",
+            "gender": "male",
+            "email": "mj23@gmail.com",
+            "current_date": "4/3/2021",
+            "current_time": "1:00:18 PM"
         },
         {
             "fname": "Johnny",
-            "lname": "DeSmith",
+            "lname": "Appleseed",
             "gender": "male",
-            "email": "johnny@live.com",
-            "current_date": 1617392408097
+            "email": "john@apple.com",
+            "current_date": "4/3/2021",
+            "current_time": "1:00:49 PM"
         },
         {
-            "fname": "Gohur",
-            "lname": "Ali",
-            "gender": "male",
-            "email": "some@email.com",
-            "current_date": 1617394478052
-        },
-        {
-            "fname": "Robert",
-            "lname": "DeNiro",
-            "gender": "male",
-            "email": "rob@deniro.com",
-            "current_date": 1617394503832
-        },
-        {
-            "fname": "joe",
-            "lname": "pesci",
-            "gender": "male",
-            "email": "Joe@Pesci.com",
-            "current_date": 1617394524840
-        },
-        {
-            "fname": "Megan",
-            "lname": "Markle",
+            "fname": "Diane",
+            "lname": "Smith",
             "gender": "female",
-            "email": "megan@gmail.com",
-            "current_date": 1617394598099
-        },
-        {
-            "fname": "Kelly",
-            "lname": "Andrews",
-            "gender": "female",
-            "email": "kelly@andrews.com",
-            "current_date": 1617394617059
-        },
-        {
-            "fname": "Henry",
-            "lname": "Hill",
-            "gender": "male",
-            "email": "henry@hill.com",
-            "current_date": 1617395654192
-        },
-        {
-            "fname": "Kanye",
-            "lname": "West",
-            "gender": "male",
-            "email": "kanye@west.com",
-            "current_date": 1617396144620
-        },
-        {
-            "fname": "Tom",
-            "lname": "Ford",
-            "gender": "male",
-            "email": "Tom@Ford.com",
-            "current_date": 1617396194280
-        },
-        {
-            "fname": "John",
-            "lname": "Lennon",
-            "gender": "male",
-            "email": "john@lennon.com"
-        },
-        {
-            "fname": "Pablo",
-            "lname": "Picasso",
-            "gender": "male",
-            "email": "pablo@pic.com"
-        },
-        {
-            "fname": "Frank",
-            "lname": "Valli",
-            "gender": "male",
-            "email": "fvalli@yahoo.com",
-            "current_date": "4/2/2021",
-            "current_time": "3:06:03 PM"
-        },
-        {
-            "fname": "Jerry",
-            "lname": "Vale",
-            "gender": "male",
-            "email": "jvale@gmail.com",
-            "current_date": "4/2/2021",
-            "current_time": "3:06:32 PM"
-        },
-        {
-            "fname": "Rita",
-            "lname": "Su",
-            "gender": "female",
-            "email": "rsu@live.com",
-            "current_date": "4/2/2021",
-            "current_time": "3:09:06 PM"
-        },
-        {
-            "fname": "Dania",
-            "lname": "Ediths",
-            "gender": "female",
-            "email": "dediths.23@gmail.com",
-            "current_date": "4/2/2021",
-            "current_time": "3:09:51 PM"
+            "email": "diane@smith.com",
+            "current_date": "4/3/2021",
+            "current_time": "1:01:49 PM"
         }
     ]
 }
