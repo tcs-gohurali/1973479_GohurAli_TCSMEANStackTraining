@@ -2,7 +2,32 @@ const http = require('http')
 const fs = require('fs')
 const url = require('url')
 
+let html_page = `
+<html>
+	<head>
+	</head>
+	
+	<body>
+		<h1>Welcome to the Task Planner</h1>
+
+		<table id="taskTable">
+			<thead>
+			</thead>
+			
+			<tbody>
+			</tbody>
+		</table>
+
+	</body>
+</html>
+`
+
+function create_storage_file(){
+	
+}
+
 let server = http.createServer( (req,res) => {
+	res.write(html_page)
 	if(req.url != '/favicon.ico'){
 		if(req.url == '/store'){
 			// take the value from the URL
@@ -30,6 +55,7 @@ let server = http.createServer( (req,res) => {
 			// </table>
 			// res.end(tableData)
 		}
+		
 	}
 })
 
