@@ -34,13 +34,15 @@ let html_page = `
 			</form>
 		</div>
 
-		<table id="taskTable">
-			<thead>
-			</thead>
-			
-			<tbody>
-			</tbody>
-		</table>
+        <table id="taskTable">
+            <thead>
+            </thead>
+
+            <tbody>
+                <tr></tr>
+            </tbody>
+        </table>
+
 
 	</body>
 </html>
@@ -51,9 +53,21 @@ let html_delete = `<h1>Delete page</h1>`
 
 let html_error = "<h1>ERROR</h1>"
 
+let html_table = `
+<table id="taskTable">
+    <thead>
+    </thead>
+
+    <tbody>
+    <tr></tr>
+    </tbody>
+</table>
+`
+
 module.exports = { 
     "index":html_page,
     "store":html_store,
     "delete":html_delete,
-    "error":html_error
+    "error":html_error,
+    "table":html_table
 }
