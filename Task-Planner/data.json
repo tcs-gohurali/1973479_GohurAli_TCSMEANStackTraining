@@ -7,18 +7,6 @@
             "task": "Debug C++ code for detector"
         },
         {
-            "taskid": "101",
-            "empid": "1875478",
-            "empName": "Fred",
-            "task": "Develop mobile app"
-        },
-        {
-            "taskid": "102",
-            "empid": "1427311",
-            "empName": "Johnny",
-            "task": "Create DB"
-        },
-        {
             "taskid": "104",
             "empid": "1024393",
             "empName": "Don ",
@@ -35,6 +23,24 @@
             "empid": "8323192",
             "empName": "Mary",
             "task": "Locate & reconfig the config.yaml for object detector"
+        },
+        {
+            "taskid": "107",
+            "empid": "6723121",
+            "empName": "Erica",
+            "task": "Develop Docker file for LSTM sentiment predictor"
+        },
+        {
+            "taskid": "108",
+            "empid": "9023424",
+            "empName": "Jeff",
+            "task": "Drop deprecated table in DynamoDB"
+        },
+        {
+            "taskid": "109",
+            "empid": "8923422",
+            "empName": "Ryan",
+            "task": "Re-config load balancer"
         }
     ]
 }

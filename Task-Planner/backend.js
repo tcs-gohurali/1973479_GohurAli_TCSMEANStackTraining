@@ -1,8 +1,11 @@
+// Author: Gohur Ali
+// Description: backend.js manages the task inputs and deletes
+// tasks are added to the array in the JSON file
 const fs = require('fs')
 const pages = require('./pages')
 function create_storage_file(){}
 
-function store(query){
+function store(data_loc,query){
 	console.log("[LOG]: Storing the following query: ")
 	// convert to obj
 	task = {
@@ -13,22 +16,22 @@ function store(query){
 	}
 	console.log(task)
 
-	let task_data = JSON.parse(fs.readFileSync("data.json","utf-8"))
+	let task_data = JSON.parse(fs.readFileSync(data_loc,"utf-8"))
 	
 	// store records in obj using array push method
 	task_data['tasks'].push(task)
 
 	// convert to string & store using fs module
-	fs.writeFileSync("data.json",JSON.stringify(task_data,null,4))
+	fs.writeFileSync(data_loc,JSON.stringify(task_data,null,4))
 }
 
-function deleteTask(query){
+function deleteTask(data_loc,query){
 	let tid = parseInt(query.taskid)
 	console.log("[LOG]: DELETING the following query: ")
 	console.log("--> " + tid + " of type: " + typeof(tid))
 	
 	// read from file & convert to json
-	let task_data = JSON.parse(fs.readFileSync("data.json","utf-8"))
+	let task_data = JSON.parse(fs.readFileSync(data_loc,"utf-8"))
 
 	// check val using iterator or loop
 	let tid_exists = (task_id,arr) => {
@@ -48,7 +51,7 @@ function deleteTask(query){
 		task_data['tasks'].splice(tid_idx,1)
 		
 		// store in file using fs module
-		fs.writeFileSync("data.json",JSON.stringify(task_data,null,4))
+		fs.writeFileSync(data_loc,JSON.stringify(task_data,null,4))
 		return true;
 	}
 	else{
@@ -57,8 +60,8 @@ function deleteTask(query){
 	}
 }
 
-function display(html_content){
-	let task_data = JSON.parse(fs.readFileSync("data.json","utf-8"))
+function display(data_loc,html_content){
+	let task_data = JSON.parse(fs.readFileSync(data_loc,"utf-8"))
 
 	let json2rows = (task_arr) => {
 		let table_rows = []
@@ -74,7 +77,6 @@ function display(html_content){
 	}
 
 	let table_rows = json2rows(task_data['tasks'])
-	// console.log(table_rows)
 
 	let table_start = html_content.split('<tr></tr>')[0]
 	let table_end = html_content.split('<tr></tr>')[1]
@@ -82,19 +84,17 @@ function display(html_content){
 		table_start += row
 	}
 	let finished_table = table_start + table_end
-	// console.log(finished_table)
 
 	return finished_table
 }
 
-function display_deletion_error(){
+function display_deletion_error(data_loc){
     // this will show when a taskID is not found
     let msg = `<p style="color:red;">ERROR: The taskID wasn't found!</p>`
     let delete_form_before = pages.index.split("<span></span>")[0]
     let delete_form_after = pages.index.split("<span></span>")[1]
     let new_delete_form = delete_form_before + msg + delete_form_after
-
-	new_delete_form = display(new_delete_form)
+	new_delete_form = display(data_loc,new_delete_form)
     return new_delete_form
 }
 
