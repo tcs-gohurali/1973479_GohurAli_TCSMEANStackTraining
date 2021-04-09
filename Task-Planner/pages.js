@@ -4,46 +4,107 @@
 let html_page = `
 <html>
 	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 	</head>
 	
 	<body>
-		<h1>Welcome to the Task Planner</h1>
+		<style>
+			#taskForm {
+				margin: auto;
+				width: 400px;
+				height: 375px;
+				border: 5px solid black;
+				border-radius: 30px;
+				padding: 0px;
+				text-align: center;
+			}
+			
+			.taskInput {
+				margin: 10px;
+			}
 
-		<div id="taskForm" style="margin:auto;width:300px;height:300px;border:5px solid black;">
+			#taskDeleteForm {
+				margin:50px auto;
+				width:400px;
+				height:175px;
+				border:5px solid black;
+				border-radius: 30px;
+				text-align: center;
+				padding: 10px;
+			}
+
+			#taskTableDiv {}
+
+			#taskTable {
+				border-collapse: separate !important;
+				margin: 10px auto;
+				text-align: center;
+				border-radius: 30px;
+				border : 5px solid black;
+			}
+			th {
+				text-align: center;
+				padding: 25px;
+			}
+			td {
+				padding: 10px;
+			}
+		</style>
+
+		<h1 style="margin:auto;text-align:center;">Welcome to the Task Planner</h1>
+
+		<div id="taskForm">
 			<form action="/store" method="get">
-				Task ID: <input type="text" name="taskid">
+				<div class="taskInput">
+					<label>Task ID: </label><input type="text" name="taskid">
+				</div>
 				<br/>
-				Employee ID: <input type="text" name="empid">
+				<div class="taskInput">
+					<label>Employee ID: </label><input type="text" name="empid">
+				</div>
 				<br/>
-				Employee Name: <input type="text" name="empName">
+				<div class="taskInput">
+					<label>Employee Name: </label><input type="text" name="empName">
+				</div>
 				<br/>
-				Task: <input type="text" name="task">
+				<div class="taskInput">
+					<label>Task: </label><input type="text" name="task">
+				</div>
 				<br/>
 
-				<input type="submit" value="Submit Task">
-				<input type="reset" value="Reset Form">
+				<input class="btn btn-primary" type="submit" value="Submit Task">
+				<input class="btn btn-secondary" type="reset" value="Reset Form">
 			</form>
 		</div>
 
-        <div id="taskDeleteForm" style="margin:50px auto;width:300px;height:50px;border:5px solid black;">
+        <div id="taskDeleteForm">
 			<form action="/delete" method="get">
-				Task ID: <input type="text" name="taskid">
+				<div class="taskInput">
+					<label>Task ID: </label><input type="text" name="taskid">
+				</div>
 				<br/>
 
-				<input type="submit" value="Delete Task">
-				<input type="reset" value="Reset Form">
+				<input class="btn btn-primary" type="submit" value="Delete Task">
+				<input class="btn btn-secondary" type="reset" value="Reset Form">
 				<span></span>
 			</form>
 		</div>
+		
+		<div id="taskTableDiv">
+			<table id="taskTable">
+				<thead>
+					<th>Task ID</th>
+					<th>Employee ID</th>
+					<th>Employee Name</th>
+					<th>Task</th>
+				</thead>
 
-        <table id="taskTable">
-            <thead>
-            </thead>
+				<tbody>
+					<tr></tr>
+				</tbody>
+			</table>
+		</div>
 
-            <tbody>
-                <tr></tr>
-            </tbody>
-        </table>
 	</body>
 </html>`
 

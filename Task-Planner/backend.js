@@ -22,36 +22,6 @@ function store(query){
 	fs.writeFileSync("data.json",JSON.stringify(task_data,null,4))
 }
 
-function display(html_content){
-	let task_data = JSON.parse(fs.readFileSync("data.json","utf-8"))
-
-	let json2rows = (task_arr) => {
-		let table_rows = []
-		for(let [idx,item] of task_arr.entries()){
-			let col1 = `<td>${item['taskid']}</td>`
-			let col2 = `<td>${item['empid']}</td>`
-			let col3 = `<td>${item['empName']}</td>`
-			let col4 = `<td>${item['task']}</td>`
-			let row = `<tr>${col1}${col2}${col3}${col4}</tr>`
-			table_rows.push(row)
-		}
-		return table_rows
-	}
-
-	let table_rows = json2rows(task_data['tasks'])
-	// console.log(table_rows)
-
-	let table_start = html_content.split('<tr></tr>')[0]
-	let table_end = html_content.split('<tr></tr>')[1]
-	for(let row of table_rows){
-		table_start += row
-	}
-	let finished_table = table_start + table_end
-	// console.log(finished_table)
-
-	return finished_table
-}
-
 function deleteTask(query){
 	let tid = parseInt(query.taskid)
 	console.log("[LOG]: DELETING the following query: ")
@@ -87,12 +57,44 @@ function deleteTask(query){
 	}
 }
 
+function display(html_content){
+	let task_data = JSON.parse(fs.readFileSync("data.json","utf-8"))
+
+	let json2rows = (task_arr) => {
+		let table_rows = []
+		for(let [idx,item] of task_arr.entries()){
+			let col1 = `<td>${item['taskid']}</td>`
+			let col2 = `<td>${item['empid']}</td>`
+			let col3 = `<td>${item['empName']}</td>`
+			let col4 = `<td>${item['task']}</td>`
+			let row = `<tr>${col1}${col2}${col3}${col4}</tr>`
+			table_rows.push(row)
+		}
+		return table_rows
+	}
+
+	let table_rows = json2rows(task_data['tasks'])
+	// console.log(table_rows)
+
+	let table_start = html_content.split('<tr></tr>')[0]
+	let table_end = html_content.split('<tr></tr>')[1]
+	for(let row of table_rows){
+		table_start += row
+	}
+	let finished_table = table_start + table_end
+	// console.log(finished_table)
+
+	return finished_table
+}
+
 function display_deletion_error(){
     // this will show when a taskID is not found
     let msg = `<p style="color:red;">ERROR: The taskID wasn't found!</p>`
     let delete_form_before = pages.index.split("<span></span>")[0]
     let delete_form_after = pages.index.split("<span></span>")[1]
     let new_delete_form = delete_form_before + msg + delete_form_after
+
+	new_delete_form = display(new_delete_form)
     return new_delete_form
 }
 

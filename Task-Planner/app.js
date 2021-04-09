@@ -15,7 +15,7 @@ let server = http.createServer( (req,res) => {
 		console.log("[LOG]: Current location: " + pathInfo)
 
 		if(pathInfo == '/'){
-			let homepage = backend.display(pages.index)
+			//let homepage = backend.display(pages.index)
 		
 			//res.end(homepage)
 			res.write(backend.display(pages.index))
