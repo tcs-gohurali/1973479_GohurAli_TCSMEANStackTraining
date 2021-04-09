@@ -1,7 +1,9 @@
+// Author: Gohur Ali
+// Description: string templates of HTML pages for various pages
+
 let html_page = `
 <html>
 	<head>
-
 	</head>
 	
 	<body>
@@ -23,7 +25,6 @@ let html_page = `
 			</form>
 		</div>
 
-
         <div id="taskDeleteForm" style="margin:50px auto;width:300px;height:50px;border:5px solid black;">
 			<form action="/delete" method="get">
 				Task ID: <input type="text" name="taskid">
@@ -31,6 +32,7 @@ let html_page = `
 
 				<input type="submit" value="Delete Task">
 				<input type="reset" value="Reset Form">
+				<span></span>
 			</form>
 		</div>
 
@@ -42,11 +44,8 @@ let html_page = `
                 <tr></tr>
             </tbody>
         </table>
-
-
 	</body>
-</html>
-`
+</html>`
 
 let html_store = `<h1>Store page</h1>`
 let html_delete = `<h1>Delete page</h1>`
