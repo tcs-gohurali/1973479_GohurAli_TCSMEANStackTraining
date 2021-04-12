@@ -14,3 +14,5 @@
 
 ### Phase 3 (JS, Node.js)
 * Logging Records
+* Task Planner
+* Chat with `socket.io`
