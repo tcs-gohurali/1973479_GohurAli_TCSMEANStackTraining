@@ -13,6 +13,7 @@ function open_data(loc){
 
 function emplate_into_DB(data){
 
+	console.log("== Using MongoDB to Insert data ==")
 	const vars = { useUnifiedTopology:true }
 	mongo_client.connect(config['URL'],vars,(error,client)=>{
 		if(!error){

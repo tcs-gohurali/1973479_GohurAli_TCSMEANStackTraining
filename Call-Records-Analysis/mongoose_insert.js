@@ -26,6 +26,7 @@ function open_data(loc){
 
 function emplate_into_DB(data){
 
+	console.log("== Using Mongoose to Insert data ==")
 	const vars = {
 		useNewUrlParser: true,
 		useUnifiedTopology:true
