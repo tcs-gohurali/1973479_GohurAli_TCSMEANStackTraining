@@ -12,24 +12,47 @@
     
     <div class="container">
 
-        <h1>Update the Cost of a Course</h1>
+        <h1>Course Management</h1>
 
-        <div class="addCourseForm">
+        <div class="menuarea">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-location" href="/retrieve">Retrieve All Courses</a></li>
+                <li class="nav-item"><a class="nav-location" href="/store">Add a Course</a></li>
+                <li class="nav-item"><a class="nav-location" href="/delete">Delete a Course</a></li>
+                <li class="nav-item"><a class="nav-location" href="/update">Update a Course</a></li>
+            </ul>
+        </div>
 
-            <form action="/update" method="post">
+        <div class="bodyContent">
+            <h3 style="margin:auto;text-align:center;">Update the Cost of a Course</h3>
+
+            <div class="addCourseForm">
+
+                <form action="/update" method="post">
+                    
+                    <div class="row">
+                        <div class="col">
+                            <label>Course ID: </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="cid">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label>Amount:</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="amnt">
+                        </div>
+                    </div>
+
+                    <input type="submit" class="btn btn-outline-dark" value="Update Course">
+                    <input type="reset"  class="btn btn-outline-danger" value="Reset">
+                </form>
                 
-                <label>Course ID: </label>
-                <input type="text" name="cid">
-                <br>
-
-                <label>Amount:</label>
-                <input type="text" name="amnt">
-                <br>
-
-                <input type="submit" value="Update Course">
-                <input type="reset" value="Reset">
-            </form>
-            
+            </div>
         </div>
     </div>
 </body>

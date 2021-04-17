@@ -11,22 +11,39 @@ let display_page = `
 </head>
 <body>
     
-    <div class="container">
+    <style>
+        th {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    </style>
 
-        <h1>Course Management</h1>
 
-        <table border="5px">
-        <thead>
-            <th>Course ID</th>
-            <th>Course Name</th>
-            <th>Description</th>
-            <th>Amount</th>
-        </thead>
-        <tbody>
-            <tr></tr>
-        </tbody>
+    
+    <h1>Course Management</h1>
+
+    <div class="menuarea">
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-location" href="/retrieve">Retrieve All Courses</a></li>
+            <li class="nav-item"><a class="nav-location" href="/store">Add a Course</a></li>
+            <li class="nav-item"><a class="nav-location" href="/delete">Delete a Course</a></li>
+            <li class="nav-item"><a class="nav-location" href="/update">Update a Course</a></li>
+        </ul>
+    </div>
+
+    <div class="bodyContent">
+        <h3 style="margin:auto;text-align:center;">Current Stored Courses</h3>
+        <table class="classTable">
+            <thead>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </thead>
+            <tbody>
+                <tr></tr>
+            </tbody>
         </table>
-
     </div>
 </body>
 </html>
