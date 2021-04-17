@@ -33,7 +33,7 @@ let display_page = `
 
     <div class="bodyContent">
         <h3 style="margin:auto;text-align:center;">Current Stored Courses</h3>
-        <table class="classTable">
+        <table class="classTable table table-striped">
             <thead>
                 <th>Course ID</th>
                 <th>Course Name</th>
