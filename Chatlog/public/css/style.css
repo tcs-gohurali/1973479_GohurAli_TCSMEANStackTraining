@@ -1,0 +1,37 @@
+/* 
+Author: Gohur Ali
+Version: 04172021    
+*/
+h1 {
+    margin: auto;
+    text-align: center;
+    color:black;
+}
+
+.bodyContent{
+    margin:10px auto;
+
+    background-color: white;
+    width: 88%;
+    height: 75vh;
+
+    padding: 10px;
+    border-radius: 10px;
+}
+
+body {
+    height: 100%;
+    background: linear-gradient(cyan, orange 60%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.MessageForm{
+    margin: auto;
+    text-align: center;
+}
+
+.msgBtn{
+    margin: 10px;
+    width: 20%
+}
