@@ -1,3 +1,7 @@
+/*
+Author: Gohur Ali
+Version: 04172021
+*/
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 

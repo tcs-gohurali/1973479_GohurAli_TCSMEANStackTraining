@@ -1,13 +1,22 @@
+/*
+Author: Gohur Ali
+Version: 04172021
+*/
 let display_page = `
+<!--
+Author: Gohur Ali
+Version: 04172021    
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" href="https://www.ird.lk/wp-content/uploads/2018/11/computerworld_bespoke_training_icon.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>CMS: All Courses</title>
 </head>
 <body>
     
@@ -18,15 +27,17 @@ let display_page = `
         }
     </style>
 
-    <h1>Course Management</h1>
+    <h1><a href="index.html">Course Management</a></h1>
 
     <div class="menuarea">
-        <ul class="nav">
-            <li class="nav-item"><a class="nav-location" href="/retrieve">Retrieve All Courses</a></li>
-            <li class="nav-item"><a class="nav-location" href="/store">Add a Course</a></li>
-            <li class="nav-item"><a class="nav-location" href="/delete">Delete a Course</a></li>
-            <li class="nav-item"><a class="nav-location" href="/update">Update a Course</a></li>
-        </ul>
+        <div class="menuareaItem">
+            <ul class="nav">
+                <li class="nav-item navLocation"><a class="nav-location" href="/retrieve">Retrieve All Courses</a></li>
+                <li class="nav-item navLocation"><a class="nav-location" href="/store">Add Course</a></li>
+                <li class="nav-item navLocation"><a class="nav-location" href="/delete">Delete Course</a></li>
+                <li class="nav-item navLocation"><a class="nav-location" href="/update">Update Course</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="bodyContent">
@@ -48,15 +59,20 @@ let display_page = `
 `
 
 let sample_page = `
+<!--
+Author: Gohur Ali
+Version: 04172021    
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" href="https://www.ird.lk/wp-content/uploads/2018/11/computerworld_bespoke_training_icon.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>CMS: Status</title>
 </head>
 <body>
     
@@ -67,15 +83,17 @@ let sample_page = `
         }
     </style>
 
-    <h1>Course Management</h1>
+    <h1><a href="index.html">Course Management</a></h1>
 
     <div class="menuarea">
-        <ul class="nav">
-            <li class="nav-item"><a class="nav-location" href="/retrieve">Retrieve All Courses</a></li>
-            <li class="nav-item"><a class="nav-location" href="/store">Add a Course</a></li>
-            <li class="nav-item"><a class="nav-location" href="/delete">Delete a Course</a></li>
-            <li class="nav-item"><a class="nav-location" href="/update">Update a Course</a></li>
-        </ul>
+        <div class="menuareaItem">
+            <ul class="nav">
+                <li class="nav-item navLocation"><a class="nav-location" href="/retrieve">Retrieve All Courses</a></li>
+                <li class="nav-item navLocation"><a class="nav-location" href="/store">Add Course</a></li>
+                <li class="nav-item navLocation"><a class="nav-location" href="/delete">Delete Course</a></li>
+                <li class="nav-item navLocation"><a class="nav-location" href="/update">Update Course</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="bodyContent">
@@ -84,9 +102,4 @@ let sample_page = `
 </body>
 </html>
 `
-
-
-
-
-
 module.exports = {display_page,sample_page}

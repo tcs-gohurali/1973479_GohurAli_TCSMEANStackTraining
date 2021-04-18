@@ -1,12 +1,31 @@
+/* 
+Author: Gohur Ali
+Version: 04172021    
+*/
 h1 {
     margin: auto;
     text-align: center;
     color:black;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+    margin: auto;
+    text-align: center;
+}
+
+.navLocation {
+    color: black;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+}
+
 .classTable{
     border-collapse: separate !important;
-    border: 5px solid black;
+    border: 7px solid black;
     border-radius: 30px;
     margin: 10px auto;
     text-align: center;
@@ -44,14 +63,23 @@ body {
 }
 
 .menuarea{
-    width:max-content;
-    height: max-content;
+    text-align: center;
     margin: 10px auto;
+    width: 88%;
+    height: max-content;
+    
     border: 5px solid black;
     border-radius: 10px;    
 }
 
+.menuareaItem{
+    width: max-content;
+    height: max-content;
+    margin: auto;
+    text-align: center;
+}
+
 li {
-    margin: 10px;
+    margin: 10px auto;
     text-align: center;
 }

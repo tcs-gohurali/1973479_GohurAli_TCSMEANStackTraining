@@ -1,7 +1,10 @@
+/*
+Author: Gohur Ali
+Version: 04172021
+*/
 const CourseModel = require('../model/course.model')
 const path = require('path')
-const { Mongoose } = require('mongoose')
-const { type } = require('os')
+
 // define fns for routes here
 let display_index = (req,res) => {
     res.sendFile(path.resolve(__dirname +"/../public/index.html"))
@@ -39,7 +42,7 @@ let updateCourse = (req,res) => {
     CourseModel.updateOne({_id:req.body.cid},{$set:{amount:parseInt(req.body.amnt)}},(error,data)=>{
         if(!error){
             
-            if(data.modifiedCount > 0){
+            if(data.nModified > 0){
                 let page_b = pages.sample_page.split("<span></span>")[0]
                 let page_a = pages.sample_page.split("<span></span>")[1]
                 page_b += `<h3 style="margin:auto;text-align:center;">Update the Cost of a Course</h3>
@@ -75,7 +78,7 @@ let deleteCourse = (req,res) => {
     CourseModel.deleteOne({_id:req.body.cid},(error,data)=>{
         if(!error){
 
-            if(data.modifiedCount > 0){
+            if(data.deletedCount > 0){
                 let page_b = pages.sample_page.split("<span></span>")[0]
                 let page_a = pages.sample_page.split("<span></span>")[1]
                 page_b += `<h3 style="margin:auto;text-align:center;">Delete a Course</h3>
@@ -83,8 +86,7 @@ let deleteCourse = (req,res) => {
                 `
                 let full_page = page_b + page_a
                 res.send(full_page)
-            }
-            else{
+            }else{
                 let page_b = pages.sample_page.split("<span></span>")[0]
                 let page_a = pages.sample_page.split("<span></span>")[1]
                 page_b += `<h3 style="margin:auto;text-align:center;">Delete a Course</h3>
@@ -95,7 +97,6 @@ let deleteCourse = (req,res) => {
             }
             
         }else{
-            console.log("bruh")
             let page_b = pages.sample_page.split("<span></span>")[0]
             let page_a = pages.sample_page.split("<span></span>")[1]
             page_b += `<h3 style="margin:auto;text-align:center;">Delete a Course</h3>
