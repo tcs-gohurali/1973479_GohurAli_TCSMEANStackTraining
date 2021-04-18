@@ -9,17 +9,14 @@ const config = {
     db_name: "CMS"
 }
 
-
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
-const vars = {
+const db_config = {
     useNewUrlParser: true,
     useUnifiedTopology:true
 }
-mongoose.connect(config['URL']+config['db_name'],vars);
-
-// connect the data
+mongoose.connect(config['URL']+config['db_name'],db_config);
 mongoose.connection
 
 app.use("/",Course)
