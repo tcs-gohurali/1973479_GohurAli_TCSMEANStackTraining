@@ -22,6 +22,9 @@ Version: 04172021
 
             let client_info = {'name':clientName.value,"msg":msg.value}
             socket.emit("chat",client_info)
+
+            clientName.value = ""
+            msg.value = ""
         }
     </script>
 </head>
@@ -33,32 +36,29 @@ Version: 04172021
         <div class="bodyContent">
 
             <div class="MessageForm">
-                <form>
-                    <div class="row">
-                        <div class="col">
-                            <label>Name:</label>
-                        </div>
-                        <div class="col">
-                            <input type="text" id="clientName" name="name">
-                        </div>
+                <div class="row">
+                    <div class="col">
+                        <label>Name:</label>
                     </div>
-                    <br>
-
-                    <div class="row">
-                        <div class="col">
-                            <label>Message:</label>
-                        </div>
-                        <div class="col">
-                            <textarea name="msg" id="clientMsg" cols="30" rows="10"></textarea>
-                        </div>
+                    <div class="col">
+                        <input type="text" id="clientName" name="name">
                     </div>
+                </div>
+                <br>
 
-                    <div class="row">
-                        <input class="btn btn-primary msgBtn" type="submit" value="Send" onclick="get_content2server()">
-                        <input class="btn btn-secondary msgBtn" type="reset" value="Reset">
+                <div class="row">
+                    <div class="col">
+                        <label>Message:</label>
                     </div>
-                </form>
+                    <div class="col">
+                        <textarea name="msg" id="clientMsg" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <input class="btn btn-primary msgBtn" type="submit" value="Send" onclick="get_content2server()">
+                    <input class="btn btn-secondary msgBtn" type="reset" value="Reset">
+                </div>
             </div>
 
         </div>

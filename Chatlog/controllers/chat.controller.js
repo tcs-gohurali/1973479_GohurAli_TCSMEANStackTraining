@@ -8,20 +8,18 @@ let display_index = (req,res) => {
 let sendMessage = (req,res) => {
     //console.log(req.body)
 
-    console.log("poggies")   
-
     let chat = new ChatModel({
         name:req.body.name,
         message:req.body.msg
     })
 
-    // chat.save((error,data)=>{
-    //     if(!error){
-    //         res.send("[LOG]: Stored in DB")
-    //     }else{
-    //         res.send("[ERROR]: Issue with storing: " + error)
-    //     }
-    // })
+    chat.save((error,data)=>{
+        if(!error){
+            res.send("[LOG]: Stored in DB")
+        }else{
+            res.send("[ERROR]: Issue with storing: " + error)
+        }
+    })
     
 }
 
