@@ -1,7 +1,10 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const Chat = require('./routes/chat.router')
+const ChatController = require('./controllers/chat.controller')
 const app = express()
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
 
 const config = {
     PORT:8100,
@@ -23,4 +26,6 @@ mongoose.connection
 app.use("/",Chat)
 app.use(express.static(__dirname+'/public'))
 
-app.listen(config['PORT'],()=>console.log(`[LOG]: Listening @ http://localhost:${config['PORT']}/`))
+io.on("connection",ChatController.sendMessageSocket)
+
+http.listen(config['PORT'],()=>console.log(`[LOG]: Listening @ http://localhost:${config['PORT']}/`))
