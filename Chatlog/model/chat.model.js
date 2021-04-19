@@ -6,6 +6,6 @@ const ChatSchema = mongoose.Schema({
     message:String
 })
 
-let CourseModel = mongoose.model("",ChatSchema,"Chats")
+let ChatModel = mongoose.model("",ChatSchema,"Chats")
 
-module.exports = CourseModel
+module.exports = ChatModel

@@ -22,8 +22,6 @@ Version: 04172021
 
             let client_info = {'name':clientName.value,"msg":msg.value}
             socket.emit("chat",client_info)
-
-            clientName.value = ""
             msg.value = ""
         }
     </script>
@@ -36,29 +34,27 @@ Version: 04172021
         <div class="bodyContent">
 
             <div class="MessageForm">
-                <div class="row">
-                    <div class="col">
-                        <label>Name:</label>
-                    </div>
-                    <div class="col">
-                        <input type="text" id="clientName" name="name">
-                    </div>
-                </div>
+                <label>Name:</label>
+                <input type="text" id="clientName" name="name">
                 <br>
 
-                <div class="row">
-                    <div class="col">
-                        <label>Message:</label>
-                    </div>
-                    <div class="col">
-                        <textarea name="msg" id="clientMsg" cols="30" rows="10"></textarea>
-                    </div>
+                <div class="chatLog">
+                    <table id="chatLogTable">
+                        <tbody>
+                            <span></span>
+                        </tbody>
+                    </table>
+
                 </div>
 
-                <div class="row">
-                    <input class="btn btn-primary msgBtn" type="submit" value="Send" onclick="get_content2server()">
-                    <input class="btn btn-secondary msgBtn" type="reset" value="Reset">
-                </div>
+
+                <label>Message:</label>
+                <textarea name="msg" id="clientMsg" cols="30" rows="2"></textarea>
+                
+                <br>
+
+                <input class="btn btn-primary msgBtn" type="submit" value="Send" onclick="get_content2server()">
+                <input class="btn btn-secondary msgBtn" type="reset" value="Reset">
             </div>
 
         </div>
